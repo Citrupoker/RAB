@@ -1,0 +1,2 @@
+# RAB
+Remote Apprentice Bot
