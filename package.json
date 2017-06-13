@@ -1,0 +1,23 @@
+{
+  "name": "remote-apprentice-bot",
+  "version": "1.0.0",
+  "description": "Bot for remoteapprentice",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Remote-Apprentice/RAB.git"
+  },
+  "keywords": [
+    "remote",
+    "apprentice"
+  ],
+  "author": "Evans Enonchong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Remote-Apprentice/RAB/issues"
+  },
+  "homepage": "https://github.com/Remote-Apprentice/RAB#readme"
+}
