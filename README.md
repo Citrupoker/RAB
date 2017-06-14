@@ -15,6 +15,10 @@ then
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 ```
+
+```bash
+nvm install v6.11.0
+```
 #### install SSL using LetsEncrypt
 ```bash
 $ sudo apt-get install software-properties-common
