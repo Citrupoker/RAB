@@ -30,8 +30,6 @@ server.listen(app.get('port'), app.get('ipaddr'), function(){
 
 
 
-
-
 //Bot code can be moved to seperate file later
 
 var Botkit = require('botkit');

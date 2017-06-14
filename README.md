@@ -39,6 +39,13 @@ npm install -g pm2
 ```bash
 git clone https://github.com/Remote-Apprentice/RAB.git rab
 ```
+
+#### create a .env file in the root directory
+```bash
+clientId=YOUR_CLIENT_ID
+clientSecret=YOUR_CLIENT_SECRET
+token=YOUR_BOT_TOKEN
+```
 #### start the server
 ```bash
 cd rab
