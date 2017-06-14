@@ -12,6 +12,7 @@ require('dotenv').config();
 
 
 app.set('port', 443);
+app.set('ipaddr', 'remoteapprentice.io');
 app.use(express.static(__dirname + '/public'));
 
 var http = require('http');
@@ -24,6 +25,9 @@ app.get('/', function(req, res) {
     res.render('index.html');
 });
 
+app.post('/github-webhook', function(req, res) {
+    console.log('github webhook',req, res);
+});
 server.listen(app.get('port'), app.get('ipaddr'), function(){
     console.log('Express server listening on  IP: ' + app.get('ipaddr') + ' and port ' + app.get('port'));
 });
@@ -32,7 +36,7 @@ server.listen(app.get('port'), app.get('ipaddr'), function(){
 
 //Bot code can be moved to seperate file later
 
-var Botkit = require('botkit');
+/*var Botkit = require('botkit');
 
 
 if (!process.env.token) {
@@ -93,7 +97,8 @@ controller.hears(['attach'],['direct_message','direct_mention'],function(bot,mes
         console.log(err,resp);
     });
 });
-
+ */
+/*
 controller.hears(['dm me'],['direct_message','direct_mention'],function(bot,message) {
     bot.startConversation(message,function(err,convo) {
         convo.say('Heard ya');
@@ -104,3 +109,4 @@ controller.hears(['dm me'],['direct_message','direct_mention'],function(bot,mess
     });
 
 });
+ */
