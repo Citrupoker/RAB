@@ -34,7 +34,7 @@ server.listen(app.get('port'), app.get('ipaddr'), function(){
 
 //Bot code can be moved to seperate file later
 
-var Botkit = require('../../lib/Botkit.js');
+var Botkit = require('botkit');
 
 
 if (!process.env.token) {
