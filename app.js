@@ -5,6 +5,6 @@ app.get('/', function(req, res) {
     res.end('test')
 })
 
-app.listen(8080, function() {
+app.listen(process.env.PORT, function() {
     console.log('Server running.')
 })
