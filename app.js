@@ -8,6 +8,7 @@ var options = {
 var express = require('express');
 var app = express();
 var server = require('https').createServer(options, app)
+var hookshot = require('hookshot');
 
 app.set('port', 443);
 app.set('ipaddr', process.env.siteUrl);
