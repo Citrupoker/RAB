@@ -64,7 +64,7 @@ server.listen(app.get('port'), app.get('ipaddr'), function(){
 
 //Bot code can be moved to seperate file later
 
-/*var Botkit = require('botkit');
+var Botkit = require('botkit');
 
 
 if (!process.env.token) {
@@ -125,8 +125,7 @@ controller.hears(['attach'],['direct_message','direct_mention'],function(bot,mes
         console.log(err,resp);
     });
 });
- */
-/*
+
 controller.hears(['dm me'],['direct_message','direct_mention'],function(bot,message) {
     bot.startConversation(message,function(err,convo) {
         convo.say('Heard ya');
@@ -137,5 +136,4 @@ controller.hears(['dm me'],['direct_message','direct_mention'],function(bot,mess
     });
 
 });
- */
 
