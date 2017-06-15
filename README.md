@@ -49,6 +49,8 @@ git clone https://github.com/Remote-Apprentice/RAB.git rab
 clientId=YOUR_CLIENT_ID
 clientSecret=YOUR_CLIENT_SECRET
 token=YOUR_BOT_TOKEN
+githubSecret=YOUR_WEBHOOK_SECRET
+siteUrl=YOUR_SITE_URL
 ```
 #### start the server
 ```bash

@@ -1,7 +1,7 @@
 var fs = require('fs');
 var options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/remoteapprentice.io/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/remoteapprentice.io/fullchain.pem')
+    key: fs.readFileSync('/etc/letsencrypt/live/'+ process.env.siteUrl +'/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/'+ process.env.siteUrl +'/fullchain.pem')
 }
 var express = require('express');
 var app = express();
@@ -11,12 +11,12 @@ require('dotenv').config();
 
 
 app.set('port', 443);
-app.set('ipaddr', 'remoteapprentice.io');
+app.set('ipaddr', process.env.siteUrl);
 app.use(express.static(__dirname + '/public'));
 
 
 var githubMiddleware = require('github-webhook-middleware')({
-    secret: process.env.GITHUB_SECRET,
+    secret: process.env.githubSecret,
     limit: '1mb', // <-- optionally include the webhook json payload size limit, useful if you have large merge commits.  Default is '100kb'
 });
 
