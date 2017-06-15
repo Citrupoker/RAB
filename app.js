@@ -14,12 +14,6 @@ app.set('ipaddr', process.env.siteUrl);
 app.use(express.static(__dirname + '/public'));
 
 
-var githubMiddleware = require('github-webhook-middleware')({
-    secret: process.env.githubSecret,
-    limit: '1mb', // <-- optionally include the webhook json payload size limit, useful if you have large merge commits.  Default is '100kb'
-});
-
-
 var http = require('http');
 http.createServer(function (req, res) {
     res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
@@ -30,35 +24,11 @@ app.get('/', function(req, res) {
     res.render('index.html');
 });
 
-app.post('/github-webhook/', githubMiddleware, function(req, res) {
-    // Only respond to github push events
-    if (req.headers['x-github-event'] != 'push') return res.status(200).end();
+app.use('/github-webhook', hookshot('refs/heads/master', 'git pull && make'));
 
-    var payload = req.body
-        , repo    = payload.repository.full_name
-        , branch  = payload.ref.split('/').pop();
-
-    var textFiles = getChangedFiles(payload.commits, /.*\.txt$/);
-    console.log(payload, repo, branch, textFiles);
-});
-function getChangedFiles(commits, matchRegex) {
-    return commits
-        .reduce(function(previousCommit, currentCommit) {
-            return previousCommit
-                .concat(currentCommit.modified)
-                .concat(currentCommit.added)
-                .filter(function(value) {
-                    return currentCommit.removed.indexOf(value) === -1;
-                });
-        }, [])
-        .filter(function(value, i, arr) {
-            return arr.indexOf(value) >= i && matchRegex.test(value);
-        });
-}
 server.listen(app.get('port'), app.get('ipaddr'), function(){
     console.log('Express server listening on  IP: ' + app.get('ipaddr') + ' and port ' + app.get('port'));
 });
-
 
 
 //Bot code can be moved to seperate file later

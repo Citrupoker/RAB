@@ -19,7 +19,8 @@
     "botkit": "^0.5.4",
     "dotenv": "^4.0.0",
     "express": "4.15.3",
-    "github-webhook-middleware": "0.0.2"
+    "github-webhook-middleware": "0.0.2",
+    "hookshot": "^0.1.0"
   },
   "author": "Evans Enonchong",
   "license": "ISC",
