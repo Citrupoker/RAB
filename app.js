@@ -31,7 +31,6 @@ server.listen(app.get('port'), app.get('ipaddr'), function(){
     console.log('Express server listening on  IP: ' + app.get('ipaddr') + ' and port ' + app.get('port'));
 });
 
-
 //Bot code can be moved to seperate file later
 
 var Botkit = require('botkit');
@@ -53,7 +52,6 @@ controller.spawn({
         throw new Error(err);
     }
 });
-
 
 controller.hears(['hello','hi'],['direct_message','direct_mention','mention'],function(bot,message) {
     bot.reply(message,"Hello.");
