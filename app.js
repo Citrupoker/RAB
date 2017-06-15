@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var fs = require('fs');
 var options = {
     key: fs.readFileSync('/etc/letsencrypt/live/'+ process.env.siteUrl +'/privkey.pem'),
@@ -6,9 +8,6 @@ var options = {
 var express = require('express');
 var app = express();
 var server = require('https').createServer(options, app)
-
-require('dotenv').config();
-
 
 app.set('port', 443);
 app.set('ipaddr', process.env.siteUrl);
