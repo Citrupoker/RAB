@@ -34,9 +34,6 @@ then
 ```bash
 certbot renew --dry-run
 ```
-```bash
-apt-get install make
-```
 #### install PM2
 ```bash
 npm install -g pm2
