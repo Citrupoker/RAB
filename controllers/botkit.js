@@ -1,6 +1,6 @@
 var Botkit = require('botkit');
-var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/botkit_express_demo';
-var botkitMongoStorage = require('../../config/botkitMongoStorage')({ mongoUri: mongoUri });
+var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/remote_apprentice';
+var botkitMongoStorage = require('../config/botkitMongoStorage')({ mongoUri: mongoUri });
 
 if (!process.env.clientId || !process.env.clientSecret) {
   console.log('Error: Specify clientId and clientSecret in environment');
