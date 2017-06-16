@@ -100,7 +100,7 @@ controller.hears(['dm me'],['direct_message','direct_mention'],function(bot,mess
     });
 
     bot.startPrivateConversation(message,function(err,dm) {
-        dm.say('Private reply!');
+        dm.say('Private reply....test!');
     });
 
 });
