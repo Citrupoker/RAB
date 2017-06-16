@@ -22,7 +22,7 @@ exports.connect = function (teamConfig) {
 var _bots = {};
 
 function trackBot(bot) {
-  _bots[bot.config.token] = bot;
+  _bots[process.env.token] = bot;
 }
 
 controller.on('create_bot', function (bot, team) {
