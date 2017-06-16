@@ -10,7 +10,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
 
 var controller = Botkit.slackbot({
     storage: botkitMongoStorage,
-    debug: true
+    debug: true,
   });
 
 exports.controller = controller;
