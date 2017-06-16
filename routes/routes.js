@@ -33,7 +33,7 @@ module.exports = function (app) {
         authAddress += 'client_id=' + process.env.clientId;
         authAddress += '&client_secret=' + process.env.clientSecret;
         authAddress += '&code=' + authCode;
-        authAddress += '&redirect_uri=' + process.env.siteUrl + 'new';
+        authAddress += '&redirect_uri=' + process.env.siteUrl + '/new';
 
         Request.get(authAddress, function (error, response, body) {
             if (error) {
