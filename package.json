@@ -19,7 +19,9 @@
     "botkit": "^0.5.4",
     "dotenv": "^4.0.0",
     "express": "4.15.3",
-    "hookshot": "^0.1.0"
+    "hookshot": "^0.1.0",
+    "mongodb": "^2.2.28",
+    "monk": "^6.0.0"
   },
   "author": "Evans Enonchong",
   "license": "ISC",
