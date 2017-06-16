@@ -15,16 +15,19 @@
     "remote",
     "apprentice"
   ],
+  "author": "Evans Enonchong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Remote-Apprentice/RAB/issues"
+  },
+  "homepage": "https://github.com/Remote-Apprentice/RAB#readme",
   "dependencies": {
     "botkit": "^0.5.4",
     "dotenv": "^4.0.0",
     "express": "4.15.3",
     "hookshot": "^0.1.0"
   },
-  "author": "Evans Enonchong",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Remote-Apprentice/RAB/issues"
-  },
-  "homepage": "https://github.com/Remote-Apprentice/RAB#readme"
+  "devDependencies": {
+    "jscs": "^3.0.7"
+  }
 }
