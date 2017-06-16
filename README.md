@@ -61,10 +61,18 @@ pm2 start app.js
 pm2 stop app
 ```
 
-# Angular 4 app
+## Angular 4 app
 ```bash
 cd client
 ng build --prod
 ```
 see https://github.com/angular/angular-cli for more commands
+
+
+## Pull Requests
+If you'd like to make your own changes, make sure you follow the pull request template, and ensure your PR is made against the 'dev' branch.
+
+If this is your first time making a PR or aren't sure of the standard practice of making a PR, here are some articles to get you started.
+ - [GitHub Pull Request Tutorial](https://www.thinkful.com/learn/github-pull-request-tutorial/)
+ - [How to write the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request)
 
