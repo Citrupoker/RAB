@@ -24,6 +24,7 @@
   "dependencies": {
     "botkit": "^0.5.4",
     "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
     "express": "4.15.3",
     "hookshot": "^0.1.0",
     "mongodb": "^2.2.28",
