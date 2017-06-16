@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./app/controllers/botkit');
 
 var fs = require('fs');
 var options = {
@@ -7,12 +8,15 @@ var options = {
   };
 var express = require('express');
 var app = express();
+var bodyParser     = require('body-parser');
 var server = require('https').createServer(options, app);
 var hookshot = require('hookshot');
 
 app.set('port', 443);
 app.set('ipaddr', process.env.siteUrl);
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
 
 var http = require('http');
 http.createServer(function (req, res) {
@@ -30,77 +34,3 @@ server.listen(app.get('port'), app.get('ipaddr'), function  () {
     console.log('Express server listening on  IP: ' + app.get('ipaddr')
         + ' and port ' + app.get('port'));
   });
-
-//Bot code can be moved to seperate file later
-
-var Botkit = require('botkit');
-
-if (!process.env.token) {
-  console.log('Error: Specify token in environment');
-  process.exit(1);
-}
-
-var controller = Botkit.slackbot({
-  debug: true,
-});
-
-controller.spawn({
-  token: process.env.token,
-}).startRTM(function (err) {
-    if (err) {
-      throw new Error(err);
-    }
-  });
-
-controller.hears(['hello', 'hi'], ['direct_message', 'direct_mention', 'mention'],
-    function (bot, message) {
-    bot.reply(message, 'Hello.');
-  });
-
-controller.hears(['attach'], ['direct_message', 'direct_mention'], function (bot, message) {
-    var attachments = [];
-    var attachment = {
-        title: 'This is an attachment',
-        color: '#FFCC99',
-        fields: [],
-      };
-
-    attachment.fields.push({
-        label: 'Field',
-        value: 'A longish value',
-        short: false,
-      });
-
-    attachment.fields.push({
-        label: 'Field',
-        value: 'Value',
-        short: true,
-      });
-
-    attachment.fields.push({
-        label: 'Field',
-        value: 'Value',
-        short: true,
-      });
-
-    attachments.push(attachment);
-
-    bot.reply(message, {
-        text: 'See below...',
-        attachments: attachments,
-      }, function (err, resp) {
-        console.log(err, resp);
-      });
-  });
-
-controller.hears(['dm me'], ['direct_message', 'direct_mention'], function (bot, message) {
-      bot.startConversation(message, function (err, convo) {
-        convo.say('Heard ya!');
-      });
-
-      bot.startPrivateConversation(message, function (err, dm) {
-        dm.say('Private reply!');
-      });
-
-    });
-
