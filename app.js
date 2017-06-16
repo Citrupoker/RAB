@@ -96,12 +96,14 @@ controller.hears(['attach'],['direct_message','direct_mention'],function(bot,mes
 
 controller.hears(['dm me'],['direct_message','direct_mention'],function(bot,message) {
     bot.startConversation(message,function(err,convo) {
-        convo.say('Heard ya!!!!');
+
+        convo.say('Heard ya man for real!!!!');
+
 
     });
 
     bot.startPrivateConversation(message,function(err,dm) {
-        dm.say('Private reply!');
+        dm.say('Private reply....test!');
     });
 
 });
