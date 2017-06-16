@@ -1,5 +1,6 @@
 var Botkit = require('botkit');
-var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/remote_apprentice';
+var mongoUri = process.env.MONGODB_URI || `mongodb://${process.env.username}:${process.env.password}
+@localhost/remote_apprentice`;
 var botkitMongoStorage = require('../config/botkitMongoStorage')({ mongoUri: mongoUri });
 
 if (!process.env.clientId || !process.env.clientSecret) {
