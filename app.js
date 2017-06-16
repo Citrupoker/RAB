@@ -1,5 +1,5 @@
 require('dotenv').config();
-require('./app/controllers/botkit');
+require('./controllers/botkit');
 
 var fs = require('fs');
 var options = {
