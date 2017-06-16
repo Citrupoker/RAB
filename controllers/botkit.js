@@ -27,7 +27,7 @@ function trackBot(bot) {
 
 controller.on('create_bot', function (bot, team) {
 
-    if (_bots[bot.config.token]) {
+    if (_bots[process.env.token]) {
       // already online! do nothing.
       console.log('already online! do nothing.');
     } else {
