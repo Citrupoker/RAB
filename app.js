@@ -24,10 +24,6 @@ http.createServer(function (req, res) {
     res.end();
   }).listen(80);
 
-app.get('/', function (req, res) {
-    res.render('index.html');
-  });
-
 app.use('/github-webhook', hookshot('refs/heads/dev', 'git pull && pm2 restart app'));
 
 server.listen(app.get('port'), app.get('ipaddr'), function  () {
