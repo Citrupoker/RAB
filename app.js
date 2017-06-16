@@ -1,6 +1,6 @@
 require('dotenv').config();
 require('./controllers/botkit');
-
+var path = require('path');
 var fs = require('fs');
 var options = {
     key: fs.readFileSync('/etc/letsencrypt/live/' + process.env.siteUrl + '/privkey.pem'),
@@ -17,10 +17,10 @@ app.set('port', 443);
 app.set('ipaddr', process.env.siteUrl);
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'public'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
-
 
 var http = require('http');
 http.createServer(function (req, res) {
