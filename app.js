@@ -15,11 +15,12 @@ var hookshot = require('hookshot');
 
 app.set('port', 443);
 app.set('ipaddr', process.env.siteUrl);
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+
 
 var http = require('http');
 http.createServer(function (req, res) {
