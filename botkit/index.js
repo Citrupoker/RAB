@@ -76,10 +76,10 @@ controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message,direct_men
     });
 });
 
-controller.hears(['wiki'], 'direct_message,direct_mention,mention', function(bot, message) {
-    //var search_term = message.match[1];
-    //var url = `http://en.wikipedia.org/w/api.php?action=opensearch&search=${search_term}&format=json`;
-    bot.reply(message, 'I heard you say wiki');
+controller.hears(['wiki (.*)'], 'direct_message,direct_mention,mention', function(bot, message) {
+    var search_term = message.match[1];
+    var url = `http://en.wikipedia.org/w/api.php?action=opensearch&search=${search_term}&format=json`;
+    bot.reply(message, search_term + ' ' + url);
 });
 
 controller.hears(['test'], 'direct_message,direct_mention,mention', function(bot, message) {
