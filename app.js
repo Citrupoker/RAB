@@ -1,5 +1,5 @@
 require('dotenv').config();
-require('./controllers/botkit');
+
 var path = require('path');
 var fs = require('fs');
 var options = {
@@ -8,7 +8,7 @@ var options = {
   };
 var express = require('express');
 var app = express();
-require('./routes/routes')(app);
+
 var bodyParser     = require('body-parser');
 var server = require('https').createServer(options, app);
 var hookshot = require('hookshot');
