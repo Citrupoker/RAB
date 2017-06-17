@@ -82,6 +82,10 @@ controller.hears(['wiki'], 'direct_message,direct_mention,mention', function(bot
     bot.reply(message, 'I heard you say wiki');
 });
 
+controller.hears(['test'], 'direct_message,direct_mention,mention', function(bot, message) {
+    bot.reply(message, 'test answer');
+});
+
 controller.hears(['what is my name', 'who am i'], 'direct_message,direct_mention,mention', function(bot, message) {
 
     controller.storage.users.get(message.user, function(err, user) {
