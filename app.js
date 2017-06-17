@@ -54,6 +54,29 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
+var reply_with_attachments = {
+  'username': 'remoteapprentice' ,
+  'text': 'Help commands',
+  'attachments': [
+    {
+      'fallback': 'To be useful, I need you to invite me in a channel.',
+      'title': 'Here is a list of commands I currently know',
+      'text': '*uptime, identify yourself, who are you,' 
+        + 'what is your name* - displays how long the bot has been running \n\n' +
+        '*what is my name, who am i* - displays your username \n\n' +
+        '*call me <your_name>, my name is <your_name>* - tell bot what your nickname is\n\n',
+      'color': '#7CD197'
+    }
+  ],
+  'icon_url': 'http://lorempixel.com/48/48'
+}
+
+controller.hears(['help'],
+    'direct_message,direct_mention,mention', function(bot, message) {
+        bot.reply(message, reply_with_attachments);
+
+    });
+    
 controller.hears(['hello', 'hi'], 'direct_message,direct_mention,mention', function(bot, message) {
 
     bot.api.reactions.add({
@@ -187,28 +210,7 @@ controller.hears(['shutdown'], 'direct_message,direct_mention,mention', function
     });
 });
 
-var reply_with_attachments = {
-  'username': 'remoteapprentice' ,
-  'text': 'Help commands',
-  'attachments': [
-    {
-      'fallback': 'To be useful, I need you to invite me in a channel.',
-      'title': 'Here is a list of commands',
-      'text': 'uptime, identify yourself, who are you,' 
-        + 'what is your name - displays how long the bot has been running \n' +
-        'what is my name, who am i - displays your username \n' +
-        'call me <your_name>, my name is <your_name> - tell bot what your nickname is\n',
-      'color': '#7CD197'
-    }
-  ],
-  'icon_url': 'http://lorempixel.com/48/48'
-}
 
-controller.hears(['help'],
-    'direct_message,direct_mention,mention', function(bot, message) {
-        bot.reply(message, reply_with_attachments);
-
-    });
     
 controller.hears(['uptime', 'identify yourself', 'who are you', 'what is your name'],
     'direct_message,direct_mention,mention', function(bot, message) {
