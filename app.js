@@ -13,6 +13,8 @@ var bodyParser     = require('body-parser');
 var server = require('https').createServer(options, app);
 var hookshot = require('hookshot');
 
+require('./twitter');
+
 app.set('port', 443);
 app.set('ipaddr', process.env.siteUrl);
 app.engine('html', require('ejs').renderFile);
@@ -187,10 +189,10 @@ controller.hears(['shutdown'], 'direct_message,direct_mention,mention', function
 
 controller.hears(['help'],
     'direct_message,direct_mention,mention', function(bot, message) {
-        bot.reply(message, 'uptime, identify yourself, who are you,' 
-        + 'what is your name - displays how long the bot has been running \n' +
+        bot.reply(message, '<b>uptime, identify yourself, who are you,' 
+        + 'what is your name</b> - displays how long the bot has been running \n' +
         'what is my name, who am i - displays your username \n' +
-        'call me (.*), my name is (.*) - tell bot what your nickname is\n'
+        'call me <your_name>, my name is <your_name> - tell bot what your nickname is\n'
         );
 
     });
