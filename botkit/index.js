@@ -78,7 +78,7 @@ controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message,direct_men
 });
 
 controller.hears(['wiki (.*)'], 'direct_message,direct_mention,mention', function(bot, message) {
-    var search_term = message.match[1];
+    var search_term = encodeURIComponent(message.match[1]);
     var url = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${search_term}&limit=1&format=json`;
     var options = {
         uri: url,
@@ -86,9 +86,8 @@ controller.hears(['wiki (.*)'], 'direct_message,direct_mention,mention', functio
     };
     rp(options)
         .then(function (data) {
-            for(var x = 0; x < data.length; x++){
-                bot.reply(message, data[x][0]);
-            }
+            console.log(data[3][0])
+            bot.reply(message, data[3][0]);
         })
         .catch(function (err) {
             console.log('error', err);
