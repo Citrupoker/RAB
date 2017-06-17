@@ -57,6 +57,7 @@ var bot = controller.spawn({
 var reply_with_attachments = {
   'username': 'remoteapprentice' ,
   'text': 'Help commands',
+  "mrkdwn": true,
   'attachments': [
     {
       'fallback': 'To be useful, I need you to invite me in a channel.',
