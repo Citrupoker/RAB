@@ -26,7 +26,8 @@
     "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
     "express": "4.15.3",
-    "hookshot": "^0.1.0"
+    "hookshot": "^0.1.0",
+    "twit": "^2.2.9"
   },
   "devDependencies": {
     "jscs": "^3.0.7"
