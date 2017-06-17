@@ -185,7 +185,16 @@ controller.hears(['shutdown'], 'direct_message,direct_mention,mention', function
     });
 });
 
+controller.hears(['help'],
+    'direct_message,direct_mention,mention', function(bot, message) {
+        bot.reply(message, 'uptime, identify yourself, who are you,' 
+        + 'what is your name - displays how long the bot has been running \n' +
+        'what is my name, who am i - displays your username \n' +
+        'call me (.*), my name is (.*) - tell bot what your nickname is\n'
+        );
 
+    });
+    
 controller.hears(['uptime', 'identify yourself', 'who are you', 'what is your name'],
     'direct_message,direct_mention,mention', function(bot, message) {
 
