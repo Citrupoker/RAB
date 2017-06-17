@@ -175,7 +175,7 @@ function formatUptime(uptime) {
 }
 
 controller.hears(['wiki (.*)'], 'direct_message,direct_mention,mention', function(bot, message) {
-    var search_term = message.match[1];
-    var url = `http://en.wikipedia.org/w/api.php?action=opensearch&search=${search_term}&format=json`;
-    bot.reply(message, 'You want to search wikipedia for ' + search_term + ' ' + url);
+    //var search_term = message.match[1];
+    //var url = `http://en.wikipedia.org/w/api.php?action=opensearch&search=${search_term}&format=json`;
+    bot.reply(message, 'I heard you say wiki');
 });
