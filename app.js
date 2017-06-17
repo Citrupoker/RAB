@@ -28,7 +28,7 @@ http.createServer(function (req, res) {
     res.end();
   }).listen(80);
 
-app.use('/github-webhook', hookshot('refs/heads/dev', 'git pull && pm2 restart app'));
+app.use('/github-webhook', hookshot('refs/heads/master', 'git pull && pm2 restart app'));
 
 server.listen(app.get('port'), app.get('ipaddr'), function  () {
     console.log('Express server listening on  IP: ' + app.get('ipaddr')
