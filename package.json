@@ -27,6 +27,8 @@
     "ejs": "^2.5.6",
     "express": "4.15.3",
     "hookshot": "^0.1.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "twit": "^2.2.9"
   },
   "devDependencies": {

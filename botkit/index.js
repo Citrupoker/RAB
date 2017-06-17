@@ -1,5 +1,6 @@
 var Botkit = require('botkit');
 var os = require('os');
+var rp = require('request-promise');
 
 if (!process.env.token) {
     console.log('Error: Specify token in environment');
@@ -78,26 +79,20 @@ controller.hears(['call me (.*)', 'my name is (.*)'], 'direct_message,direct_men
 
 controller.hears(['wiki (.*)'], 'direct_message,direct_mention,mention', function(bot, message) {
     var search_term = message.match[1];
-    var url = `http://en.wikipedia.org/w/api.php?action=opensearch&search=${search_term}&format=json`;
-    return new Promise((resolve, reject) => {
-    // select http or https module, depending on reqested url
-    const lib = url.startsWith('https') ? require('https') : require('http');
-    const request = lib.get(url, (response) => {
-      // handle http errors
-      if (response.statusCode < 200 || response.statusCode > 299) {
-         reject(new Error('Failed to load page, status code: ' + response.statusCode));
-       }
-      // temporary data holder
-      const body = [];
-      // on every content chunk, push it to the data array
-      response.on('data', (chunk) => body.push(chunk));
-      // we are done, resolve promise with those joined chunks
-      response.on('end', () => resolve(body.join('')));
-      bot.reply(message, body);
-    });
-    // handle connection errors of the request
-    request.on('error', (err) => reject(err))
-    })
+    var url = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${search_term}&limit=1&format=json`;
+    var options = {
+        uri: url,
+        json: true
+    };
+    rp(options)
+        .then(function (data) {
+            for(var x = 0; x < data.length; x++){
+                bot.reply(message, data[x][0]);
+            }
+        })
+        .catch(function (err) {
+            console.log('error', err);
+        });
 });
 
 controller.hears(['what is my name', 'who am i'], 'direct_message,direct_mention,mention', function(bot, message) {
