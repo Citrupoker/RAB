@@ -7,7 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RemoteApprentice.io';
-  siteUrl = 'remoteapprentice.io';
-  clientId = '188005782946.189109978850';
 
 }
