@@ -191,9 +191,8 @@ controller.hears(['wiki (.*)'], 'direct_message,direct_mention,mention', functio
       response.on('data', (chunk) => body.push(chunk));
       // we are done, resolve promise with those joined chunks
       response.on('end', () => 
-      {resolve(body.join(''));
-      bot.reply(message, body);}
-      );
+      resolve(body.join('')));
+      bot.reply(message, body)
     });
     // handle connection errors of the request
     request.on('error', (err) => reject(err))
