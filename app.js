@@ -54,6 +54,15 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
+bot.sendWebhook({
+  text: 'This is an incoming webhook',
+  channel: '#general',
+},function(err,res) {
+  if (err) {
+    console.log('error', err);
+  }
+});
+
 var reply_with_attachments = {
   'username': 'remoteapprentice' ,
   'text': 'Help commands',
