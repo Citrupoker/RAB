@@ -173,3 +173,30 @@ function formatUptime(uptime) {
     uptime = uptime + ' ' + unit;
     return uptime;
 }
+
+controller.hears(['wiki (.*)'], 'direct_message,direct_mention,mention', function(bot, message) {
+    var search_term = message.match[1];
+    var url = `http://en.wikipedia.org/w/api.php?action=opensearch&search=${search_term}&format=json`;
+    return new Promise((resolve, reject) => {
+    // select http or https module, depending on reqested url
+    const lib = url.startsWith('https') ? require('https') : require('http');
+    const request = lib.get(url, (response) => {
+      // handle http errors
+      if (response.statusCode < 200 || response.statusCode > 299) {
+         reject(new Error('Failed to load page, status code: ' + response.statusCode));
+       }
+      // temporary data holder
+      const body = [];
+      // on every content chunk, push it to the data array
+      response.on('data', (chunk) => body.push(chunk));
+      // we are done, resolve promise with those joined chunks
+      response.on('end', () => 
+      {resolve(body.join(''));
+      bot.reply(message, body);}
+      );
+    });
+    // handle connection errors of the request
+    request.on('error', (err) => reject(err))
+    })
+
+});
