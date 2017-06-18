@@ -54,7 +54,7 @@ siteUrl=YOUR_SITE_URL
 #### start the server
 ```bash
 cd rab
-pm2 start app.js
+pm2 start server.js
 ```
 #### stop the server
 ```bash
