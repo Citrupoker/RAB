@@ -8,7 +8,7 @@ var app = express();
 var bodyParser     = require('body-parser');
 var hookshot = require('hookshot');
 
-require('./twitter');
+require('./twitter')();
 require('./botkit');
 
 app.engine('html', require('ejs').renderFile);
