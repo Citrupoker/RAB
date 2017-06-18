@@ -10,9 +10,6 @@ var T = new Twit({
 var stream = T.stream('user', { stringify_friend_ids: true })
 
 
-module.exports = function () {
-console.log("what happened to l")
-console.log(process.env.WEBHOOK)
 stream.on('direct_message', function (direct_message) {
   request.post(
       process.env.WEBHOOK,
@@ -64,6 +61,6 @@ stream.on('direct_message', function (direct_message) {
       }
       )
 })
-}
+
     
     
