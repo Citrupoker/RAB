@@ -7,7 +7,7 @@ var app = express();
 
 var bodyParser     = require('body-parser');
 
-require('./twitter');
+require('./twitter')();
 require('./botkit');
 
 app.engine('html', require('ejs').renderFile);
@@ -20,4 +20,4 @@ app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
 app.listen(app.get('port'), function() {
     console.log("Node app is running at localhost:" + app.get('port'))
 })
- 
+
