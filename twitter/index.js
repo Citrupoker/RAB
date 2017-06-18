@@ -1,4 +1,4 @@
-var Twitter = require('twit')
+var Twit = require('twit')
 var request = require('request')
 var T = new Twit({
   consumer_key: process.env.CONSUMER_KEY,
