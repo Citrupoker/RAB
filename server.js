@@ -6,7 +6,6 @@ var express = require('express');
 var app = express();
 
 var bodyParser     = require('body-parser');
-var hookshot = require('hookshot');
 
 require('./twitter')();
 require('./botkit');
@@ -18,9 +17,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
 
-app.use('/github-webhook', hookshot('refs/heads/dev', 'git pull && pm2 restart app'));
+app.listen(app.get('port'), function() {
+    console.log("Node app is running at localhost:" + app.get('port'))
+})
 
-app.listen(process.env.PORT || 3004, function  () {
-    console.log('Express server listening on  IP: 0.0.0.0 and port ' + process.env.PORT);
-  });
- 
