@@ -1,5 +1,14 @@
 module.exports = (handles, controller, bot) => {
     var rp = require('request-promise');
+
+    Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+
     controller.hears(handles, 'direct_message,direct_mention,mention', function (bot, message) {
         console.log(message)
         console.log(message.match[1])
@@ -12,7 +21,7 @@ module.exports = (handles, controller, bot) => {
             };
             rp(options)
                 .then(function (data) {
-                    for(var x = 0; x< data.data.length; x++){
+                    for(var x = 0; x< Object.size(data.data[0]); x++){
                         console.log(data.data[0].link);
                         //bot.reply(message, data.data[0].link);
                     }
