@@ -8,7 +8,7 @@ var port = process.env.PORT || 5000;
 var mongoose = require('mongoose');
 
 mongoose.connect(`mongodb://${process.env.USERNAME}:${process.env.PASSWORD}@ds131312.mlab.com:31312/remoteapprentice`);
-console.log('mongoose ', mongoose.connection.readyState);
+console.log('mongoose connection', mongoose.connection.readyState);
 
 app.set('port', port);
 require('./twitter')();
