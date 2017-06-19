@@ -7,6 +7,7 @@ var mongoose = require('mongoose'),
 var userSchema = new Schema({
     name: String,
     email: String,
+    verified: {type: Boolean, default: false},
     createdAt: {
         type: Date,
         default: Date.now
