@@ -22,7 +22,7 @@ module.exports = (handles, controller, bot) => {
             rp(options)
                 .then(function (data) {
                     for(var x = 0; x< Object.size(data.data[0]); x++){
-                        console.log(data.data[0].link);
+                        console.log(data.data[x].link);
                         //bot.reply(message, data.data[0].link);
                     }
                 })
