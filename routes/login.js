@@ -1,8 +1,7 @@
 var router = express.Router()
 
-router.get('/', function (req, res, next) {
-    console.log(req.params.id)
-    res.send('hello')
+router.post('/', function (req, res, next) {
+    res.json(req.params);
 })
 
 module.exports = router;
