@@ -11,6 +11,7 @@ var mongoose = require('mongoose');
 
 mongoose.connect(`mongodb://${process.env.USERNAME}:${process.env.PASSWORD}@ds131312.mlab.com:31312/remoteapprentice`);
 
+console.log(mongoose);
 app.set('port', port);
 require('./twitter')();
 require('./botkit');
