@@ -9,7 +9,7 @@ module.exports = (handles, controller, bot) => {
         return size;
     };
 
-    controller.hears(handles, 'direct_message,direct_mention,mention', function (bot, message) {
+    controller.hears(handles, 'direct_message', function (bot, message) {
         console.log(message)
         console.log(message.match[1])
         var arg = encodeURIComponent(message.match[1]);
@@ -22,8 +22,7 @@ module.exports = (handles, controller, bot) => {
             rp(options)
                 .then(function (data) {
                     for(var x = 0; x< Object.size(data.data[0]); x++){
-                        console.log(data.data[x].link);
-                        //bot.reply(message, data.data[0].link);
+                        bot.reply(message, data.data[0].link);
                     }
                 })
                 .catch(function (err) {
