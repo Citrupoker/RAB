@@ -47,5 +47,5 @@ addHandler(['hello', 'hi'], "greetings")
 addHandler(['dm'], "twitterdm")
 
 function addHandler(handles, name){
-    require("./modules/" + name + ".js")(handles, controller, bot)
+     require("./modules/" + name + ".js")(handles, controller, bot)
 }
