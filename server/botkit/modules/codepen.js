@@ -12,10 +12,9 @@ module.exports = (handles, controller, bot) => {
             };
             rp(options)
                 .then(function (data) {
-                    for(var x = 0; x< data.data[0].length; x++){
-                        console.log(data.data[x]);
+                        console.log(data.data[0].length);
                         //bot.reply(message, data.data[0].link);
-                    }
+
                 })
                 .catch(function (err) {
                     console.log('error', err);
