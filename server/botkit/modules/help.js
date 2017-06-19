@@ -13,7 +13,7 @@ var reply_with_attachments = {
         '*wiki <your_query>* - displays the Wikipedia page for a query\n\n' +
         '*register <your_email>* - tell bot your email address',
       'color': '#7CD197',
-      'mrkdwn_in': ["text"],
+      'mrkdwn_in': ["text"]
     }
   ],
   'icon_url': 'http://lorempixel.com/48/48'
