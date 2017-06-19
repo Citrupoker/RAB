@@ -5,7 +5,7 @@ var reply_with_attachments = {
   'attachments': [
     {
       'fallback': 'To be useful, I need you to invite me in a channel.',
-      'title': 'Here is a list of commands I currently know:',
+      'title': 'Here is a list of commands I currently know:\n\n',
       'text': '*uptime, identify yourself, who are you, ' + 
         'what is your name* - displays how long the bot has been running \n\n' +
         '*what is my name, who am i* - displays your username \n\n' +
