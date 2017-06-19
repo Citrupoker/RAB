@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
@@ -7,6 +5,9 @@ var app = express();
 
 var bodyParser     = require('body-parser');
 var port = process.env.PORT || 5000;
+var MongoClient = require('mongodb').MongoClient
+
+MongoClient.connect(`mongodb://${process.env.USERNAME}:${process.env.PASSWORD}@ds131312.mlab.com:31312/remoteapprentice`);
 
 app.set('port', port);
 require('./twitter')();
