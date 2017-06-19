@@ -1,7 +1,7 @@
 # Remote Apprentice Bot
 ![Screenshot](https://s3.amazonaws.com/media.launchrock.com/assets/sites/site-bvrwu6f6280jiv2xrjws5zdaa/shobmz-citrudev_remoteapprentice.png)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://github.com/Remote-Apprentice/RAB/tree/dev)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Remote-Apprentice/RAB/tree/dev)
 #### set these config variables in heroku
 ```bash
 clientId=YOUR_CLIENT_ID
