@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 var path = require('path');
 var fs = require('fs');
 var express = require('express');

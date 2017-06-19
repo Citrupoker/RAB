@@ -23,7 +23,6 @@
   "homepage": "https://github.com/Remote-Apprentice/RAB#readme",
   "dependencies": {
     "botkit": "^0.5.4",
-    "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
     "express": "4.15.3",
     "mongoose": "^4.10.7",
