@@ -41,8 +41,10 @@ addHandler(['help'], "help")
 addHandler(['call me (.*)', 'my name is (.*)'], "callme")
 addHandler(['wiki (.*)'], "wikipedia")
 addHandler(['login'], "login")
+addHandler(['register'], "register")
 addHandler(['uptime', 'identify yourself', 'who are you', 'what is your name'], "uptime")
 addHandler(['hello', 'hi'], "greetings")
+addHandler(['dm'], "twitterdm")
 
 function addHandler(handles, name){
     require("./modules/" + name + ".js")(handles, controller, bot)
