@@ -6,12 +6,58 @@ var reply_with_attachments = {
     {
       'fallback': 'To be useful, I need you to invite me in a channel.',
       'title': 'Here is a list of commands I currently know:',
-      'text': '*\n\n uptime, identify yourself, who are you, ' + 
-        'what is your name* - displays how long the bot has been running \n\n' +
-        '*what is my name, who am i* - displays your username \n\n' +
-        '*call me <your_name>, my name is <your_name>* - tell bot what your nickname is\n\n' +
-        '*wiki <your_query>* - displays the Wikipedia page for a query\n\n' +
-        '*register <your_email>* - tell bot your email address',
+      'fields': [
+        {
+          'title': 'Input:',
+          'value': 'uptime, identify yourself, who are you, what is your name',
+          'short': true
+        },
+        {
+          'title': 'Use:',
+          'value': 'displays how long the bot has been running',
+          'short': true
+        },
+        {
+          'title': 'Input:',
+          'value': 'what is my name, who am i',
+          'short': true
+        },
+        {
+          'title': 'Use:',
+          'value': 'displays your username',
+          'short': true
+        },
+        {
+          'title': 'Input:',
+          'value': 'call me <your_name>, my name is <your_name>',
+          'short': true
+        },
+        {
+          'title': 'Use:',
+          'value': 'tell bot what your nickname is',
+          'short': true
+        },
+        {
+          'title': 'Input:',
+          'value': 'wiki <your_query>',
+          'short': true
+        },
+        {
+          'title': 'Use:',
+          'value': 'displays the Wikipedia page for a query',
+          'short': true
+        },
+        {
+          'title': 'Input:',
+          'value': 'register <your_email>',
+          'short': true
+        },
+        {
+          'title': 'Use:',
+          'value': 'tell bot your email address',
+          'short': true
+        }
+      ],
       'color': '#7CD197',
       'mrkdwn_in': ["text"]
     }
