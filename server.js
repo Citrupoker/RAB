@@ -7,6 +7,9 @@ var app = express();
 
 var bodyParser     = require('body-parser');
 var port = process.env.PORT || 5000;
+var mongoose = require('mongoose');
+
+mongoose.connect(`mongodb://${process.env.USERNAME}:${process.env.PASSWORD}@ds131312.mlab.com:31312/remoteapprentice`);
 
 app.set('port', port);
 require('./twitter')();
