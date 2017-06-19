@@ -12,8 +12,8 @@ module.exports = (handles, controller, bot) => {
             };
             rp(options)
                 .then(function (data) {
-                    console.log(data.data)
-                    bot.reply(message, data.data);
+                    console.log(data.data[0].link)
+                    bot.reply(message, data.data[0].link);
                 })
                 .catch(function (err) {
                     console.log('error', err);
