@@ -19,7 +19,7 @@ module.exports = (handles, controller, bot) => {
                     console.log('error', err);
                 });
         }else{
-            bot.reply(message, 'That is not a known command');
+            bot.reply(message, 'That is not a known command. try popular, recent or picks');
         }
 
     });
