@@ -13,7 +13,8 @@ module.exports = (handles, controller, bot) => {
             rp(options)
                 .then(function (data) {
                     for(var x = 0; x< data.data[0].length; x++){
-                        bot.reply(message, data.data[0].link);
+                        console.log(data.data[x]);
+                        //bot.reply(message, data.data[0].link);
                     }
                 })
                 .catch(function (err) {
