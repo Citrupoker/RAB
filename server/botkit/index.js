@@ -1,6 +1,9 @@
 var Botkit = require('botkit');
 var os = require('os');
 
+
+module.exports = function () {
+
 if (!process.env.token) {
     console.log('Error: Specify token in environment');
     process.exit(1);
@@ -46,7 +49,10 @@ addHandler(['codepen (.*)'], "codepen")
 addHandler(['uptime', 'identify yourself', 'who are you', 'what is your name'], "uptime")
 addHandler(['hello', 'hi'], "greetings")
 addHandler(['dm'], "twitterdm")
+addHandler(["profile"], "profile")
 
 function addHandler(handles, name){
      require("./modules/" + name + ".js")(handles, controller, bot)
+}
+
 }
