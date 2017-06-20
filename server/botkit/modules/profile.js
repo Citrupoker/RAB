@@ -7,7 +7,7 @@ var format_attachment = function(name, coach, email, desc, skills, roles, img, w
           {
             'fallback':  'To be useful, I need you to invite me in a channel.',
             'color': '#36a64f',
-            'pretext': 'Profile',
+            'pretext': name,
             'author_name': website,
             'author_link': website,
             'author_icon': 'http://flickr.com/icons/bobby.jpg',
