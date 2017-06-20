@@ -7,11 +7,9 @@ var format_attachment = function(name, coach, email, desc, skills, roles, img, w
             'fallback':  'To be useful, I need you to invite me in a channel.',
             'color': '#36a64f',
             'pretext': name,
-            'author_name': website,
-            'author_link': website,
             'author_icon': 'http://flickr.com/icons/bobby.jpg',
-            'title': profile_url,
-            'title_link': profile_url,
+            'title': website,
+            'title_link': website,
             'text': desc,
             'fields': [
               {
@@ -53,7 +51,7 @@ module.exports = (handles, controller, bot) => {
     controller.hears(handles,
         'direct_message,direct_mention,mention', function(bot, message) {
            
-            bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"","citrudev.com",""))
+            bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"https://image.ibb.co/fvvW55/business.jpg","citrudev.com",""))
             
         });
 }
