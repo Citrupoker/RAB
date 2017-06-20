@@ -41,7 +41,7 @@ module.exports = (handles, controller, bot) => {
                                 convo.next();
                             });
                             convo.on('end', function(convo) {
-                                if (convo.status == 'completed') {
+                
                                     convo.say(message, 'Congratulations! You have been registered.');
                                     
                                     newMember.save(function(err, member) {
@@ -49,7 +49,7 @@ module.exports = (handles, controller, bot) => {
                                        bot.reply(message, format_attachment(member));
                                        res.json(member);
                                     });
-                                }
+                            
                             });
                         }
                     })
