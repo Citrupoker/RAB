@@ -2,7 +2,7 @@ var Members = require('../models/members')
 
 module.exports.addMember = function(req, res){
     var name = req.body.name;
-    var coach = Boolean(req.body.coach)
+    var coach = req.body.coach === 'true'
     var email = req.body.email;
     var desc = req.body.desc;
     var skills = req.body.skills.split(',');

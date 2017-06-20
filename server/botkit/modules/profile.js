@@ -5,7 +5,7 @@ module.exports = (handles, controller, bot) => {
         'direct_message,direct_mention,mention', function(bot, message) {
           
               Members.find({}, function(err, members){
-                if (!err && members.length > 1){
+                if (!err && members.length > 0){
                   members.forEach(function(member){
                   bot.reply(message, format_attachment(member))
                   })
