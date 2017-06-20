@@ -45,7 +45,7 @@ module.exports.updateMember = function(req, res){
         if (err) {
             res.status(500).send(err);
         } else {
-            member.name = req.body.name || member.tname;
+            member.name = req.body.name || member.name;
             member.coach = req.body.coach || member.coach;
             member.email = req.body.email || member.email;
             member.desc = req.body.desc || member.desc;
@@ -55,7 +55,7 @@ module.exports.updateMember = function(req, res){
             member.website = req.body.website || member.website;
             member.views = req.body.views || member.views;
             member.offers = req.body.offers || member.offers;
-            
+
             member.save(function (err, member) {
                 if (err) {
                     res.status(500).send(err)
