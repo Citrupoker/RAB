@@ -29,7 +29,7 @@ var reply_with_attachments = {
     {
       'fallback': 'To be useful, I need you to invite me in a channel.',
       'title': 'Here is a list of commands I currently know:',
-      'fields': commands.filter((command) => [
+      'fields': commands.map((command) => [
         {
           'title': 'Input:',
           'value': command.input,
