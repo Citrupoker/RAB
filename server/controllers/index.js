@@ -29,3 +29,36 @@ module.exports.addMember = function(req, res){
         res.json(member)
     })
 }
+
+module.exports.getMembers = function(req, res){
+    Members.find(function (err, members) {
+        if (err) {
+            res.status(500).send(err)
+        } else {
+            res.json(members);
+        }
+    });
+}
+
+module.exports.updateMember = function(req, res){
+    Members.findById(req.params.id, function (err, member) {
+        if (err) {
+            res.send(err)
+        }
+        if (member) {
+            res.json(member)
+        } else {
+            res.send("No member found with that ID")
+        }
+    });
+}
+
+module.exports.deleteMember = function(req, res){
+    Members.findByIdAndRemove(req.params.id, function (err, member) {
+        var response = {
+            message: "Member successfully deleted",
+            id: member._id
+        };
+        res.send(response);
+    });
+}
