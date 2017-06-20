@@ -1,4 +1,4 @@
-var Members = require('./models/members')
+var Members = require('../../models/members')
 
 module.exports = (handles, controller, bot) => {
     controller.hears(handles,
