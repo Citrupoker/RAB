@@ -53,7 +53,7 @@ var desc = "Hello everyone, my name is Evans Enonchong, and I am a full-stack ME
 module.exports = (handles, controller, bot) => {
     controller.hears(handles,
         'direct_message,direct_mention,mention', function(bot, message) {
-            var args = encodeURIComponent(message.match[1])
+            var args = message.match[1]
             if (args == "all"){
                 bot.reply(message, format_attachment('evans', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"","citrudev.com",""))
             }
