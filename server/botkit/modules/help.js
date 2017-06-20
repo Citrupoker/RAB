@@ -17,7 +17,11 @@ var commands = [
   },
   {
     'input': 'register <your_email>',
-    'use': 'tell bot your email address'
+    'use': 'Can only be used in a Direct Message to the bot. tell bot your email address to begin the registration process'
+  },
+  {
+     'input': 'codepen <recent/popular/picks>',
+     'use': 'Can only be used in a Direct Message to the bot. Returns results from the codepen API'
   }
 ];
 

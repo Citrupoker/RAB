@@ -1,18 +1,22 @@
 module.exports = (handles, controller, bot) => {
     controller.hears(handles,
-        'direct_message,direct_mention,mention', function(bot, message) {
+        'direct_message', function(bot, message) {
             var email = message.match[1];
-            controller.storage.users.get(message.user, function (err, user) {
-                if (!user) {
-                    user = {
-                        id: message.user,
-                    };
-                }
-                user.email = email;
-                controller.storage.users.save(user, function (err, id) {
-                    bot.reply(message, 'Got it now. Your email is ' + user.email);
-                });
-            });
+
+            //check email against db emails
+
+            //if email is not already registered
+            //add new user with email address
+            // trigger start of conversation
+            // Thank you. We need some information about you blah blah....
+
+            //What is your name?
+            //Write a brief description about yourself.
+            //What are your skills?
+            //Img url?
+            //personal website
+
+            //end conversation.
     });
 
 }
