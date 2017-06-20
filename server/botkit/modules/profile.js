@@ -1,7 +1,6 @@
 var format_attachment = function(name, coach, email, desc, skills, roles, img, website, profile_url ) {
     return {
-  'username': 'remoteapprentice' ,
-  'text': 'Profile',
+  'username': 'Remote Apprentice' 
   "mrkdwn": true,
           'attachments': [
           {
@@ -54,9 +53,7 @@ module.exports = (handles, controller, bot) => {
     controller.hears(handles,
         'direct_message,direct_mention,mention', function(bot, message) {
            
-            
-            bot.reply(message, format_attachment('evans', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"","citrudev.com",""))
-            
+            bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"","citrudev.com",""))
             
         });
 }
