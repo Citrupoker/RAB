@@ -6,7 +6,7 @@ module.exports = (handles, controller, bot) => {
         'direct_message', function(bot, message) {
             var email = message.match[1];
             Members.schema.path('email').validate(function (value, res) {
-                Members.findOne({email: value}, 'id', function(err, user) {
+                Members.findOne({email: email}, 'id', function(err, user) {
                     if (err) {
                         return res(err);
                     }
