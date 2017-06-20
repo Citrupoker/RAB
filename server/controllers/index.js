@@ -43,12 +43,25 @@ module.exports.getMembers = function(req, res){
 module.exports.updateMember = function(req, res){
     Members.findById(req.params.id, function (err, member) {
         if (err) {
-            res.send(err)
-        }
-        if (member) {
-            res.json(member)
+            res.status(500).send(err);
         } else {
-            res.send("No member found with that ID")
+            member.name = req.body.name || member.tname;
+            member.coach = req.body.coach || member.coach;
+            member.email = req.body.email || member.email;
+            member.desc = req.body.desc || member.desc;
+            member.skills = req.body.skills || member.skills;
+            member.roles = req.body.roles || member.roles;
+            member.img = req.body.img || member.img;
+            member.website = req.body.website || member.website;
+            member.views = req.body.views || member.views;
+            member.offers = req.body.offers || member.offers;
+            
+            member.save(function (err, member) {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.json(member);
+            });
         }
     });
 }
