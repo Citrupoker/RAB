@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 
-var membersSchema =  mongoose.Schema({
+var memberSchema =  mongoose.Schema({
     coach : {type: Boolean, default: false},
     name : {type: String},
     email: {type: String},
@@ -9,4 +9,4 @@ var membersSchema =  mongoose.Schema({
     role: []
 })
 
-module.exports = mongoose.model('Members', membersSchema)
+module.exports = mongoose.model('Member', memberSchema)
