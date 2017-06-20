@@ -9,32 +9,36 @@ module.exports = (handles, controller, bot) => {
             //check email against db emails
             Members.findOne({'email': email}, function(err, member) {
 
-            //if email is not already registered
+                //if email is not already registered
                 if (err) throw err
                 else if (member) {
                     bot.reply(message, "You are already registered.");
                 } else {
-            //add new user with email address
+                     //add new user with email address
                      var newMember = new Members({email: email});
-            // trigger start of conversation
+                    // trigger start of conversation
                      bot.startPrivateConversation(message, function(err, convo) {
                         if (!err) {
                             convo.say('Thank you. We need some information about you');
                             convo.ask('What is your name?', function(response, convo) {
                                 newMember.name = response.text;
-                                    convo.ask('Write a brief description about yourself.', function(response, convo) {
-                                        newMember.desc = response.text
-                                        convo.ask('Nice! Tell us about your skills? (Separate by commas.)', function(response, convo) {
-                                            newMember.skills = response.text.split(',');
-                                            convo.ask('Paste your image url here', function(response, convo) {
-                                                newMember.img = response.text;
-                                                convo.ask('Great! Now share the url to your personal website', function(response, convo) {
-                                                    newMember.website = response.text;
-                                                    convo.next();
-                                                });
-                                            });
-                                        });
-                                    });
+                                convo.next();
+                            });
+                            convo.ask('Write a brief description about yourself.', function(response, convo) {
+                                newMember.desc = response.text;
+                                convo.next();
+                            });
+                            convo.ask('Nice! Tell us about your skills? (Separate by commas.)', function(response, convo) {
+                                newMember.skills = response.text.split(',');
+                                convo.next();
+                            });
+                            convo.ask('Paste your image url here', function(response, convo) {
+                                newMember.img = response.text;
+                                convo.next();
+                            });
+                            convo.ask('Great! Now share the url to your personal website', function(response, convo) {
+                                newMember.website = response.text;
+                                convo.next();
                             });
                             convo.on('end', function(convo) {
                                 if (convo.status == 'completed') {
@@ -46,7 +50,7 @@ module.exports = (handles, controller, bot) => {
                                        res.json(member);
                                     });
                                 }
-                            })
+                            });
                         }
                     })
                 }
