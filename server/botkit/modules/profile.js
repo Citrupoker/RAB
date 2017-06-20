@@ -34,7 +34,7 @@ var format_attachment = function(name, coach, email, desc, skills, roles, img, w
               },
               {
                 'title': 'Role:',
-                'value': roles.join(' '),
+                'value': roles.join(', '),
                 'short': true
 
               }
