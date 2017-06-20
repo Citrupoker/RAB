@@ -2,16 +2,16 @@ var path = require('path');
 var fs = require('fs');
 var express = require('express');
 var app = express();
-
+var mongoose = require('mongoose');
 var bodyParser     = require('body-parser');
 var port = process.env.PORT || 5000;
-var MongoClient = require('mongodb').MongoClient
 
-MongoClient.connect(`mongodb://${process.env.USERNAME}:${process.env.PASSWORD}@ds131312.mlab.com:31312/remoteapprentice`);
+mongoose.connect(process.env.MONGODB);
 
 app.set('port', port);
 require('./twitter')();
 require('./botkit')();
+require('./api')(app);
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
