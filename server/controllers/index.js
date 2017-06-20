@@ -41,7 +41,8 @@ module.exports.getMembers = function(req, res){
 }
 
 module.exports.updateMember = function(req, res){
-    Members.findOne(req.params.id, function (err, member) {
+    Members.findOne({id: req.params.id}, function (err, member) {
+
         if (err) {
             res.status(500).send(err);
         } else {
