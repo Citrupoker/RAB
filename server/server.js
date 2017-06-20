@@ -8,17 +8,18 @@ var port = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGODB);
 
-app.set('port', port);
+
 require('./twitter')();
 require('./botkit')();
-require('./api')(app);
 
+app.set('port', port);
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'public'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
+
 require('./api')(app);
 
 app.listen(app.get('port'), function() {
