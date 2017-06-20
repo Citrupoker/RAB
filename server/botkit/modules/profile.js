@@ -19,7 +19,7 @@ var format_attachment = function(name, coach, email, desc, skills, roles, img, w
 
               },
               {
-                'title': 'Coach / Apprentice',
+                'title': 'Coach / Apprentice:',
                 'value': coach ? "Coach" : "Apprentice",
                 'short': true
 
