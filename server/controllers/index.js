@@ -49,12 +49,12 @@ module.exports.updateMember = function(req, res){
             member.coach = req.body.coach || member.coach;
             member.email = req.body.email || member.email;
             member.desc = req.body.desc || member.desc;
-            member.skills = req.body.skills.split(',') || member.skills;
-            member.roles = req.body.roles.split(',') || member.roles;
+            member.skills = req.body.skills || member.skills;
+            member.roles = req.body.roles || member.roles;
             member.img = req.body.img || member.img;
             member.website = req.body.website || member.website;
             member.views = req.body.views || member.views;
-            member.offers = req.body.offers.split(',') || member.offers;
+            member.offers = req.body.offers || member.offers;
 
             member.save(function (err, member) {
                 if (err) {
