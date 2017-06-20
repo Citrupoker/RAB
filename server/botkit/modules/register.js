@@ -10,7 +10,7 @@ module.exports = (handles, controller, bot) => {
                 }
                 user.email = email;
                 controller.storage.users.save(user, function (err, id) {
-                    bot.reply(message, 'Got it. Your email is ' + user.email);
+                    bot.reply(message, 'Got it now. Your email is ' + user.email);
                 });
             });
     });
