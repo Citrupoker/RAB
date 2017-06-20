@@ -15,7 +15,7 @@ module.exports = (handles, controller, bot) => {
                     bot.reply(message, "You are already registered.");
                 } else {
                      //add new user with email address
-                     var newMember = new Members({email: email});
+                     var newMember = new Members();
                     // trigger start of conversation
                      bot.startPrivateConversation(message, function(err, convo) {
                         if (!err) {
@@ -43,7 +43,7 @@ module.exports = (handles, controller, bot) => {
                             convo.on('end', function(convo) {
                 
                                     convo.say(message, 'Congratulations! You have been registered.');
-                                    
+                                    newMember.email = email;
                                     newMember.save(function(err, member) {
                                        if (err) throw err;
                                        bot.reply(message, format_attachment(member));
