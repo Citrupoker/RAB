@@ -52,7 +52,7 @@ module.exports = (handles, controller, bot) => {
         'direct_message,direct_mention,mention', function(bot, message) {
           
          
-              bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"https://image.ibb.co/fvvW55/business.jpg","citrudev.com",message.match[1]))
+              bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"https://image.ibb.co/fvvW55/business.jpg","http://citrudev.com",message.match[1]))
            
         
         });
