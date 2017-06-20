@@ -38,19 +38,16 @@ module.exports = (handles, controller, bot) => {
                             });
                             convo.ask('Great! Now share the url to your personal website', function(response, convo) {
                                 newMember.website = response.text;
-                                convo.next();
-                            });
-                            convo.on('end', function(convo) {
-                
-                                    convo.say(message, 'Congratulations! You have been registered.');
+                            
+                                convo.say(message, 'Congratulations! You have been registered.');
                                     newMember.email = email;
                                     newMember.save(function(err, member) {
                                        if (err) throw err;
                                        bot.reply(message, format_attachment(member));
                                        res.json(member);
                                     });
-                            
                             });
+                        
                         }
                     })
                 }
