@@ -6,7 +6,9 @@ var memberSchema =  mongoose.Schema({
     email: {type: String},
     desc: {type: String},
     skills: [],
-    role: []
+    roles: [],
+    img: {type: String},
+    website: {type: String}
 })
 
 module.exports = mongoose.model('Member', memberSchema)
