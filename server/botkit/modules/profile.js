@@ -1,6 +1,6 @@
 var format_attachment = function(name, coach, email, desc, skills, roles, img, website, profile_url ) {
     return {
-  'username': 'Remote Apprentice' 
+  'username': 'Remote Apprentice', 
   "mrkdwn": true,
           'attachments': [
           {
