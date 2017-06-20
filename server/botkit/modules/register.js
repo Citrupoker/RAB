@@ -44,7 +44,6 @@ module.exports = (handles, controller, bot) => {
                                     newMember.save(function(err, member) {
                                        if (err) throw err;
                                        bot.reply(message, format_attachment(member));
-                                       res.json(member);
                                     });
                             });
                         
