@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Members = require('./members');
+var Members = require('../../models/members')
 
 module.exports = (handles, controller, bot) => {
     controller.hears(handles,
