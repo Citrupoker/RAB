@@ -50,8 +50,21 @@ var desc = "Hello everyone, my name is Evans Enonchong, and I am a full-stack ME
 module.exports = (handles, controller, bot) => {
     controller.hears(handles,
         'direct_message,direct_mention,mention', function(bot, message) {
+           var args = message.match[1]
+           if (args == "me") {
+               bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"https://image.ibb.co/fvvW55/business.jpg","citrudev.com",""))
+           }
+           if (args == "all") {
+               bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"https://image.ibb.co/fvvW55/business.jpg","citrudev.com",""))
+           }
            
-            bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"https://image.ibb.co/fvvW55/business.jpg","citrudev.com",""))
-            
+           if (args == "coach") {
+               bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"https://image.ibb.co/fvvW55/business.jpg","citrudev.com",""))
+           }
+           
+           if (args == "apprentice") {
+               bot.reply(message, format_attachment('Evans Enonchong', true, 'evansantonio32@gmail.com',desc, ['JavaScript','Web scraping', 'HMTL', 'CSS','Python'],['Admin', 'Coach', 'Owner'],"https://image.ibb.co/fvvW55/business.jpg","citrudev.com",""))
+           }
+        
         });
 }
