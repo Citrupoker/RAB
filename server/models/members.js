@@ -8,7 +8,9 @@ var memberSchema =  mongoose.Schema({
     skills: [],
     roles: [],
     img: {type: String},
-    website: {type: String}
+    website: {type: String},
+    views: {type: Number},
+    offers: []
 })
 
 module.exports = mongoose.model('Member', memberSchema)

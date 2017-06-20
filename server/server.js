@@ -11,7 +11,7 @@ MongoClient.connect(`mongodb://${process.env.USERNAME}:${process.env.PASSWORD}@d
 
 app.set('port', port);
 require('./twitter')();
-require('./botkit');
+require('./botkit')();
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -19,6 +19,7 @@ app.set('views', path.join(__dirname, 'public'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
+require('./api')(app);
 
 app.listen(app.get('port'), function() {
     console.log("Node app is running at localhost:" + app.get('port'))
