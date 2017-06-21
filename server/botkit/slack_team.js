@@ -11,10 +11,14 @@ module.exports = () => {
     rp(options)
         .then(function (data) {
             console.log('ALL DATA', data);
+            var profiles = [];
             for(var x in data.members) {
                 if(data.members[x].profile !== undefined) {
-                    var profile = data.members[x].profile;
-                    console.log('PROFILE DATA' + profile);
+                    profiles.push(data.members[x].profile);
+                }
+            }
+            profiles.forEach(function(profile) {
+                if(profile.email.length > 0) {
                     Members.findOne({'email': profile.email}, function(err, member) {
                         if(err) throw err;
                         else if(!member) {
@@ -30,7 +34,7 @@ module.exports = () => {
                         }
                     });
                 }
-            }
+            });
         })
         .catch(function (err) {
             console.log('error', err);
