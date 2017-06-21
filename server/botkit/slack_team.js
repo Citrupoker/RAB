@@ -8,8 +8,8 @@ module.exports = () => {
     };
     rp(options)
         .then(function (data) {
-            console.log(data);
-            if (data.members[0].profile !== undefined) console.log(data.members[0].profile);
+            console.log('ALL DATA', data);
+            if (data.members[0].profile !== undefined) console.log('PROFILE DATA',data.members[0].profile);
 
         })
         .catch(function (err) {
