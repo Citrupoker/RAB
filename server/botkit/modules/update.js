@@ -34,10 +34,10 @@ module.exports = (handles, controller, bot) => {
                             })
                             convo.ask('Great! Now share the url to your personal website.', function(response, convo) {
                                 member.website = response.text
-                                convo.say(message, 'Your information has been updated. Thank you.')
                                 member.save(function(err, member) {
                                     if(err) throw err
-                                    bot.reply(message, format_attachment(member))
+                                    convo.say('Your information has been updated. Thank you.')
+                                    convo.say(format_attachment(member))
                                 })
                             })
                     }
