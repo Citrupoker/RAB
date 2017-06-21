@@ -10,30 +10,26 @@ module.exports = () => {
     };
     rp(options)
         .then(function (data) {
-            var profiles = [];
-            for(var x in data.members) {
-                if(data.members[x].profile !== undefined) {
-                    console.log(data.members[x].profile);
-                    profiles.push(data.members[x].profile);
-                }
-            }
-            profiles.forEach(function(profile) {
-                if(profile.email && profile.email.length > 0) {
-                    Members.findOne({'email': profile.email}, function(err, member) {
-                        if(err) throw err;
-                        else if(!member) {
-                            var newMember = new Members();
-                            newMember.coach = 'false';
-                            newMember.name = profile.real_name;
-                            newMember.email = profile.email;
-                            newMember.img = profile.image_512;
-                            console.log(newMember);
-                            
-                            newMember.save(function(err, member) {
-                                if(err) throw err;
-                            });
-                        }
-                    });
+            data.members.forEach(function(member) {
+                if(member.profile !== undefined) {
+                    var profile = member.profile;
+                    if(profile.email && profile.email.length > 0) {
+                        Members.findOne({'email': profile.email}, function(err, member) {
+                            if(err) throw err;
+                            else if(!member) {
+                                var newMember = new Members();
+                                newMember.coach = 'false';
+                                newMember.name = profile.real_name;
+                                newMember.email = profile.email;
+                                newMember.img = profile.image_512;
+                                console.log(newMember);
+                                
+                                newMember.save(function(err, member) {
+                                    if(err) throw err;
+                                });
+                            }
+                        });
+                    }
                 }
             });
         })
