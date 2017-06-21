@@ -23,31 +23,23 @@ module.exports = (handles, controller, bot) => {
                     bot.startPrivateConversation(message, function(err, convo) {
                         if(!err) {
                             convo.say('Okay, let\'s review your information.')
-                            convo.ask('Please write a brief description about yourself. ' +
-                            (member.desc && member.desc.length > 0) ? 
-                            '*Current (please answer _yes_ to keep it this way):*\n\n>' + member.desc : 
-                            '', function(response, convo) {
+                            convo.ask('Please write a brief description about yourself. ' + currentInfo(member.desc), 
+                            function(response, convo) {
                                 if (response.text.toLowerCase() !== 'yes') member.desc = response.text
                                 convo.next()
                             })
-                            convo.ask('Nice! Tell us about your skills. (Separate by commas.) ' + 
-                            (member.skills && member.skills.length > 0) ? 
-                            '*Current (please answer _yes_ to keep it this way):*\n\n>' + member.skills.join(', ') : 
-                            '', function(response, convo) {
+                            convo.ask('Nice! Tell us about your skills. (Separate by commas.) ' + currentInfo(member.skills), 
+                            function(response, convo) {
                                 if (response.text.toLowerCase() !== 'yes') member.skills = response.text.split(',')
                                 convo.next()
                             })
-                            convo.ask('Okay. Now please paste your image url here. ' + 
-                            (member.img && member.img.length > 0) ? 
-                            '*Current (please answer _yes_ to keep it this way):*\n\n>' + member.img : 
-                            '', function(response, convo) {
+                            convo.ask('Okay. Now please paste your image url here. ' + currentInfo(member.img), 
+                            function(response, convo) {
                                 if (response.text.toLowerCase() !== 'yes') member.img = response.text
                                 convo.next()
                             })
-                            convo.ask('Great! Finally, share the url to your personal website. ' + 
-                            (member.website && member.website.length > 0) ? 
-                            '*Current (please answer _yes_ to keep it this way):*\n\n>' + member.website : 
-                            '', function(response, convo) {
+                            convo.ask('Great! Finally, share the url to your personal website. ' + currentInfo(member.website),
+                            function(response, convo) {
                                 if (response.text.toLowerCase() !== 'yes') member.website = response.text
                                 member.save(function(err, member) {
                                     if(err) throw err
@@ -113,3 +105,10 @@ function format_attachment(member) {
         ]
     }
 } 
+
+function currentInfo(property) {
+    return (property && property.length > 0) ? 
+    '*Current (please answer _yes_ to keep it this way):*\n\n>' + 
+    Array.isArray(property) ? property.join(', ') : property
+    : '\n\n';
+}
