@@ -21,7 +21,7 @@ module.exports = () => {
                                 newMember.coach = 'false';
                                 newMember.name = profile.real_name;
                                 newMember.email = profile.email;
-                                newMember.img = profile.image_512;
+                                newMember.img = profile.image_192;
                                 console.log(newMember);
                                 
                                 newMember.save(function(err, member) {
