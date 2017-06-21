@@ -9,12 +9,14 @@ if (!process.env.token) {
 
 var controller = Botkit.slackbot({
     debug: false,
-});
+}).configureSlackApp(
+    {
+        clientId: process.env.clientId,
+        clientSecret: process.env.clientSecret
+    });
 
 var bot = controller.spawn({
-    token: process.env.token,
-    clientId: process.env.clientId,
-    clientSecret: process.env.clientSecret
+    token: process.env.token
 }).startRTM();
 
 
