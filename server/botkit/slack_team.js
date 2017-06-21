@@ -9,7 +9,7 @@ module.exports = () => {
     rp(options)
         .then(function (data) {
             console.log(data);
-            if (data.profile[0] !== undefined) console.log(data.profile);
+            if (data.members.profile !== undefined) console.log(data.members.profile);
 
         })
         .catch(function (err) {
