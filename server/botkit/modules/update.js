@@ -16,24 +16,29 @@ module.exports = (handles, controller, bot) => {
                 bot.startPrivateConversation(message, function(err, convo) {
                     if(!err) {
                         convo.say('Okay, let\'s review your information.')
-                            convo.ask('What is your name? (' + member.name + ')', function(response, convo) {
-                                member.name = response.text
+                            convo.ask('What is your name? ' + 
+                            '*Current (please answer "yes" to keep it this way): *' + member.name, function(response, convo) {
+                                if (response.text.toLowerCase() !== 'yes') member.name = response.text
                                 convo.next()
                             })
-                            convo.ask('Please write a brief description about yourself. (' + member.desc + ')', function(response, convo) {
-                                member.desc = response.text
+                            convo.ask('Please write a brief description about yourself. ' +
+                            '*Current (please answer "yes" to keep it this way): *' + member.desc, function(response, convo) {
+                                if (response.text.toLowerCase() !== 'yes') member.desc = response.text
                                 convo.next()
                             })
-                            convo.ask('Nice! Tell us about your skills. (Separate by commas.) (' + member.skills.join(',') + ')', function(response, convo) {
-                                member.skills = response.text.split(',')
+                            convo.ask('Nice! Tell us about your skills. (Separate by commas.) ' + 
+                            '*Current (please answer "yes" to keep it this way): *' + member.skills.join(','), function(response, convo) {
+                                if (response.text.toLowerCase() !== 'yes') member.skills = response.text.split(',')
                                 convo.next()
                             })
-                            convo.ask('Okay. Now please paste your image url here. (' + member.img + ')', function(response, convo) {
-                                member.img = response.text
+                            convo.ask('Okay. Now please paste your image url here. ' + 
+                            '*Current (please answer "yes" to keep it this way): *' + member.img, function(response, convo) {
+                                if (response.text.toLowerCase() !== 'yes') member.img = response.text
                                 convo.next()
                             })
-                            convo.ask('Great! Now share the url to your personal website. (' + member.website + ')', function(response, convo) {
-                                member.website = response.text
+                            convo.ask('Great! Now share the url to your personal website. ' + 
+                            '*Current (please answer "yes" to keep it this way): *' + member.website, function(response, convo) {
+                                if (response.text.toLowerCase() !== 'yes') member.website = response.text
                                 member.save(function(err, member) {
                                     if(err) throw err
                                     convo.say('Your information has been updated. Thank you.')
