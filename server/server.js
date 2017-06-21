@@ -12,6 +12,7 @@ mongoose.connect(process.env.MONGODB);
 
 require('./twitter')();
 require('./botkit')();
+require('./botkit/slack_team')();
 
 app.set('port', port);
 app.engine('html', require('ejs').renderFile);
