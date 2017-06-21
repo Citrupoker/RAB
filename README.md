@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Remote-Apprentice/RAB.png?label=ready&title=Ready)](https://waffle.io/Remote-Apprentice/RAB?utm_source=badge)
 # Remote Apprentice Bot
 ![Screenshot](https://s3.amazonaws.com/media.launchrock.com/assets/sites/site-bvrwu6f6280jiv2xrjws5zdaa/shobmz-citrudev_remoteapprentice.png)
 
