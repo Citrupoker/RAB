@@ -15,7 +15,7 @@ module.exports = (handles, controller, bot) => {
                 //If the email is in the database, start the conversation, asking the user for all the info
                 bot.startPrivateConversation(message, function(err, convo) {
                     if(!err) {
-                        convo.say('Thank you. We need some information about you.')
+                        convo.say('Okay, let\'s review your information.')
                             convo.ask('What is your name?', function(response, convo) {
                                 member.name = response.text
                                 convo.next()
@@ -38,6 +38,7 @@ module.exports = (handles, controller, bot) => {
                                     if(err) throw err
                                     convo.say('Your information has been updated. Thank you.')
                                     convo.say(format_attachment(member))
+                                    convo.next()
                                 })
                             })
                     }
