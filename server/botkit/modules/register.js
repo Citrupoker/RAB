@@ -38,6 +38,7 @@ module.exports = (handles, controller, bot) => {
                             });
                             convo.ask('Great! Now share the url to your personal website.', function(response, convo) {
                                 newMember.website = response.text;
+                                convo.next();
                             
                                 convo.say(message, 'Congratulations! You have been registered.');
                                 newMember.email = email;
