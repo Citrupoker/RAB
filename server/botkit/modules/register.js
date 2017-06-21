@@ -32,6 +32,10 @@ module.exports = (handles, controller, bot) => {
                                 newMember.skills = response.text.split(',');
                                 convo.next();
                             });
+                            convo.ask('Tell us a bit about your roles here too. (Separate by commas.)', function(response, convo) {
+                                newMember.roles = response.text.split(',');
+                                convo.next();
+                            });
                             convo.ask('Okay. Now please paste your image url here.', function(response, convo) {
                                 newMember.img = response.text;
                                 convo.next();
