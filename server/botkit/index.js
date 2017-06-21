@@ -1,6 +1,4 @@
 var Botkit = require('botkit');
-var os = require('os');
-
 
 module.exports = function () {
 
@@ -26,6 +24,7 @@ addHandler(['call me (.*)', 'my name is (.*)'], "callme")
 addHandler(['wiki (.*)'], "wikipedia")
 addHandler(['login (.*)'], "login")
 addHandler(['register (.*)'], "register")
+addHandler(['update (.*)'], "update")
 addHandler(['codepen (.*)'], "codepen")
 addHandler(['uptime', 'identify yourself', 'who are you', 'what is your name'], "uptime")
 addHandler(['hello', 'hi'], "greetings")

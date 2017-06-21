@@ -18,34 +18,33 @@ module.exports = (handles, controller, bot) => {
                     // trigger start of conversation
                      bot.startPrivateConversation(message, function(err, convo) {
                         if (!err) {
-                            convo.say('Thank you. We need some information about you');
+                            convo.say('Thank you. We need some information about you.');
                             convo.ask('What is your name?', function(response, convo) {
                                 newMember.name = response.text;
                                 convo.next();
                             });
-                            convo.ask('Write a brief description about yourself.', function(response, convo) {
+                            convo.ask('Please write a brief description about yourself.', function(response, convo) {
                                 newMember.desc = response.text;
                                 convo.next();
                             });
-                            convo.ask('Nice! Tell us about your skills? (Separate by commas.)', function(response, convo) {
+                            convo.ask('Nice! Tell us about your skills. (Separate by commas.)', function(response, convo) {
                                 newMember.skills = response.text.split(',');
                                 convo.next();
                             });
-                            convo.ask('Paste your image url here', function(response, convo) {
+                            convo.ask('Okay. Now please paste your image url here.', function(response, convo) {
                                 newMember.img = response.text;
                                 convo.next();
                             });
-                            convo.ask('Great! Now share the url to your personal website', function(response, convo) {
+                            convo.ask('Great! Now share the url to your personal website.', function(response, convo) {
                                 newMember.website = response.text;
-                            
-                                convo.say(message, 'Congratulations! You have been registered.');
-                                    newMember.email = email;
-                                    newMember.save(function(err, member) {
-                                       if (err) throw err;
-                                       bot.reply(message, format_attachment(member));
-                                    });
+                                newMember.email = email;
+                                newMember.save(function(err, member) {
+                                   if (err) throw err;
+                                   convo.say('Congratulations! You have been registered.');
+                                   convo.say(format_attachment(member));
+                                   convo.next();
+                                });
                             });
-                        
                         }
                     })
                 }
