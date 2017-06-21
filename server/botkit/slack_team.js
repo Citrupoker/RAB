@@ -9,7 +9,7 @@ module.exports = () => {
     rp(options)
         .then(function (data) {
             console.log(data);
-            console.log(data.profile);
+            console.log(data.profile[0]);
         })
         .catch(function (err) {
             console.log('error', err);
