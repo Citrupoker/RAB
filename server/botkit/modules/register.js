@@ -5,7 +5,6 @@ module.exports = (handles, controller, bot) => {
     controller.hears(handles,
         'direct_message', function(bot, message) {
             var email = message.match[1];
-            
             //check email against db emails
             Members.findOne({'email': email}, function(err, member) {
 
