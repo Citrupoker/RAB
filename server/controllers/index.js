@@ -79,3 +79,12 @@ module.exports.deleteMember = (req, res) => {
         });
     });
 }
+
+module.exports.deleteAllMembers = (req, res) => {
+    Members.remove({}, (err, result) => {
+       if (err) throw err;
+       res.send({
+           message: "Collection successfully removed"
+       }); 
+    });
+}
