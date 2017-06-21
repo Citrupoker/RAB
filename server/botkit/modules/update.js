@@ -3,6 +3,7 @@ var Members = require('../../models/members')
 
 module.exports = (handles, controller, bot) => {
     controller.hears(handles, 'direct_message', function(bot, message) {
+        console.log(message.user)
         var email = message.match[1]
         
         //Look for email to be updated in the database
