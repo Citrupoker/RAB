@@ -109,6 +109,6 @@ function format_attachment(member) {
 function currentInfo(property) {
     return (property && property.length > 0) ? 
     '*Current (please answer _yes_ to keep it this way):*\n\n>' + 
-    Array.isArray(property) ? property.join(', ') : property
+    (Array.isArray(property)) ? property.join(', ') : property
     : '\n\n';
 }
