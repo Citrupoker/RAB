@@ -9,9 +9,10 @@ module.exports = () => {
     rp(options)
         .then(function (data) {
             console.log('ALL DATA', data);
-            if (data.members[0].profile !== undefined) {
-                for(var x in data.members[0]){
-                    console.log('PROFILE DATA',data.members[0].profile);
+            for(var x in data.members){
+            if (data.members[x].profile !== undefined) {
+
+                    console.log('PROFILE DATA',data.members[x].profile);
                 }
             }
 
