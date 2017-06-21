@@ -12,7 +12,8 @@ var controller = Botkit.slackbot({
 }).configureSlackApp(
     {
         clientId: process.env.clientId,
-        clientSecret: process.env.clientSecret
+        clientSecret: process.env.clientSecret,
+        redirectUri: process.env.siteUrl
     });
 
 var bot = controller.spawn({
