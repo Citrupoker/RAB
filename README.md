@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Remote-Apprentice/RAB.png?label=ready&title=Ready)](https://waffle.io/Remote-Apprentice/RAB?utm_source=badge)
 # Remote Apprentice Bot
 ![Screenshot](https://s3.amazonaws.com/media.launchrock.com/assets/sites/site-bvrwu6f6280jiv2xrjws5zdaa/shobmz-citrudev_remoteapprentice.png)
 
@@ -15,6 +16,7 @@ CONSUMER_SECRET=YOUR_TWITTER_CONSUMER_SECRET
 ACCESS_TOKEN=YOUR_TWITTER_ACCESS_TOKEN
 ACCESS_TOKEN_SECRET=YOUR_TWITTER_ACCESS_TOKEN_SECRET
 WEBHOOK=YOUR_SLACK_WEBHOOK
+SLACK_OAUTH_TOKEN=YOUR_SLACK_OAUTH_TOKEN
 ```
 
 ## Angular 4 app
