@@ -16,23 +16,23 @@ module.exports = (handles, controller, bot) => {
                 bot.startPrivateConversation(message, function(err, convo) {
                     if(!err) {
                         convo.say('Okay, let\'s review your information.')
-                            convo.ask('What is your name?', function(response, convo) {
+                            convo.ask('What is your name? (' + member.name + ')', function(response, convo) {
                                 member.name = response.text
                                 convo.next()
                             })
-                            convo.ask('Please write a brief description about yourself.', function(response, convo) {
+                            convo.ask('Please write a brief description about yourself. (' + member.desc + ')', function(response, convo) {
                                 member.desc = response.text
                                 convo.next()
                             })
-                            convo.ask('Nice! Tell us about your skills. (Separate by commas.)', function(response, convo) {
+                            convo.ask('Nice! Tell us about your skills. (Separate by commas.) (' + member.skills.join(',') + ')', function(response, convo) {
                                 member.skills = response.text.split(',')
                                 convo.next()
                             })
-                            convo.ask('Okay. Now please paste your image url here.', function(response, convo) {
+                            convo.ask('Okay. Now please paste your image url here. (' + member.img + ')', function(response, convo) {
                                 member.img = response.text
                                 convo.next()
                             })
-                            convo.ask('Great! Now share the url to your personal website.', function(response, convo) {
+                            convo.ask('Great! Now share the url to your personal website. (' + member.website + ')', function(response, convo) {
                                 member.website = response.text
                                 member.save(function(err, member) {
                                     if(err) throw err
