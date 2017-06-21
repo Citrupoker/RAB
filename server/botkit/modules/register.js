@@ -44,7 +44,7 @@ module.exports = (handles, controller, bot) => {
                                    convo.next();
                                 });
                             });
-                            convo.say(message, 'Congratulations! You have been registered.' + format_attachment(newMember));
+                            convo.say('Congratulations! You have been registered.' + format_attachment(newMember));
                         }
                     })
                 }
