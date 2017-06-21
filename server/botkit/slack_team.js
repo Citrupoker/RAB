@@ -19,7 +19,7 @@ module.exports = () => {
                 }
             }
             profiles.forEach(function(profile) {
-                if(profile.email.length > 0) {
+                if(profile.email && profile.email.length > 0) {
                     Members.findOne({'email': profile.email}, function(err, member) {
                         if(err) throw err;
                         else if(!member) {
