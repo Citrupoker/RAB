@@ -1,6 +1,4 @@
 var Botkit = require('botkit');
-var os = require('os');
-
 
 module.exports = function () {
 
