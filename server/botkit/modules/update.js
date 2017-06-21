@@ -107,8 +107,15 @@ function format_attachment(member) {
 } 
 
 function currentInfo(property) {
-    return (property && property.length > 0) ? 
-    '*Current (please answer _yes_ to keep it this way):*\n\n>' + 
-    (Array.isArray(property)) ? property.join(', ') : property
-    : '\n\n';
+    var message = '*Current (please answer _yes_ to keep it this way):*\n\n>';
+    if (property && property.length > 0) {
+        if (Array.isArray(property)) {
+            message += property.join(', ');
+        } else {
+            message += property;
+        }
+    } else {
+        message = '\n\n';
+    }
+    return message;
 }
