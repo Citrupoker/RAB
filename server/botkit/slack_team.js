@@ -11,8 +11,7 @@ module.exports = () => {
             console.log('ALL DATA', data);
             for(var x in data.members){
             if (data.members[x].profile !== undefined) {
-
-                    console.log('PROFILE DATA',data.members[x].profile);
+                console.log('PROFILE DATA',data.members[x].profile);
                 }
             }
 
