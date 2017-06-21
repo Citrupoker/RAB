@@ -2,7 +2,7 @@ var Members = require('../../models/members')
 
 module.exports = (handles, controller, bot) => {
     controller.hears(handles,
-        'direct_message,direct_mention,mention', function(bot, message) {
+        'direct_message', function(bot, message) {
           
               Members.find({}, function(err, members){
                 if (!err && members.length > 0){
