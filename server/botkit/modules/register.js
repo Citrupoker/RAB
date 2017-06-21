@@ -41,11 +41,11 @@ module.exports = (handles, controller, bot) => {
                                 newMember.email = email;
                                 newMember.save(function(err, member) {
                                    if (err) throw err;
+                                   convo.say('Congratulations! You have been registered.');
+                                   convo.say(format_attachment(member));
                                    convo.next();
                                 });
                             });
-                            convo.say('Congratulations! You have been registered.');
-                            convo.say(format_attachment(newMember));
                         }
                     })
                 }
