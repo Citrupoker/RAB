@@ -10,7 +10,6 @@ module.exports = () => {
     };
     rp(options)
         .then(function (data) {
-            console.log('ALL DATA', data);
             var profiles = [];
             for(var x in data.members) {
                 if(data.members[x].profile !== undefined) {
@@ -28,6 +27,7 @@ module.exports = () => {
                             newMember.name = profile.real_name;
                             newMember.email = profile.email;
                             newMember.img = profile.image_512;
+                            console.log(newMember);
                             
                             newMember.save(function(err, member) {
                                 if(err) throw err;
