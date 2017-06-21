@@ -12,6 +12,7 @@ var controller = Botkit.slackbot({
     clientId: process.env.clientId,
     clientSecret: process.env.clientSecret,
     scopes: ['bot','incoming-webhook'],
+    send_via_rtm: true,
     require_delivery: true,
 });
 
