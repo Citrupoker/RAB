@@ -3,21 +3,24 @@ var Members = require('../../models/members')
 
 module.exports = (handles, controller, bot) => {
     controller.hears(handles, 'direct_message', function(bot, message) {
+        var members, email;
         var rp = require('request-promise');
-    var url = `https://slack.com/api/users.list?token=${process.env.SLACK_OAUTH_TOKEN}&pretty=1`;
-    var options = {
-        uri: url,
-        json: true
-    };
-    rp(options)
-        .then(function (data) {
-            console.log(data);
-        })
-        .catch(function (err) {
-            console.log('error', err);
-        });
+        var url = `https://slack.com/api/users.list?token=${process.env.SLACK_OAUTH_TOKEN}&pretty=1`;
+        var options = {
+            uri: url,
+            json: true
+        };
+        rp(options)
+            .then(function (data) {
+                members = data.members;
+            })
+            .catch(function (err) {
+                console.log('error', err);
+            });
         
-        var email = message.match[1]
+        members.forEach((member) => {
+            if (member.id === message.user) email = member.profile.email; 
+        });
         
         //Look for email to be updated in the database
         Members.findOne({'email': email}, function(err, member) {
