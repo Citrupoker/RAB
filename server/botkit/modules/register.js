@@ -43,8 +43,8 @@ module.exports = (handles, controller, bot) => {
                                    if (err) throw err;
                                    convo.say(message, 'Congratulations! You have been registered.');
                                    convo.say(message, format_attachment(member));
+                                   convo.next();
                                 });
-                                convo.next();
                             });
                         }
                     })
