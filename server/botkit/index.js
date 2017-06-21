@@ -9,12 +9,10 @@ if (!process.env.token) {
 
 var controller = Botkit.slackbot({
     debug: false,
-}).configureSlackApp(
-    {
-        clientId: process.env.clientId,
-        clientSecret: process.env.clientSecret,
-        redirectUri: process.env.siteUrl
-    });
+    clientId: process.env.clientId,
+    clientSecret: process.env.clientSecret,
+    scopes: ['bot','incoming-webhook']
+});
 
 var bot = controller.spawn({
     token: process.env.token
