@@ -40,10 +40,10 @@ module.exports = (handles, controller, bot) => {
                                 newMember.website = response.text;
                                 convo.next();
                             });
-                            convo.say(message, 'Congratulations! You have been registered.');
                             newMember.email = email;
                             newMember.save(function(err, member) {
                                if (err) throw err;
+                               bot.reply(message, 'Congratulations! You have been registered.');
                                bot.reply(message, format_attachment(member));
                             });
                         
