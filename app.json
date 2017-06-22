@@ -1,0 +1,7 @@
+{
+  "name": "remoteapprentice",
+  "description": "remoteapprentice bot",
+  "repository": "https://github.com/Remote-Apprentice/RAB",
+  "logo": "https://camo.githubusercontent.com/39f24ccf19a8b621e739427adc5eadd04c5d3f5e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6d656469612e6c61756e6368726f636b2e636f6d2f6173736574732f73697465732f736974652d62767277753666363238306a69763278726a7773357a6461612f73686f626d7a2d63697472756465765f72656d6f746561707072656e746963652e706e67",
+  "keywords": ["node", "bot", "remoteapprentice"]
+}
