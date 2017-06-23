@@ -34,6 +34,7 @@ module.exports = (handles, controller, bot) => {
         console.log(message.match[1], message.match[2])
         if(message.match[1] == 'jobs'){
             var search_term = encodeURIComponent(message.match[2]);
+            bot.reply(message, 'Test success');
         }
 
         /*
