@@ -1,4 +1,4 @@
-var upworkCtrl = require('../controllers');
+var upworkCtrl = require('../controllers/upwork');
 
 module.exports = function (app) {
 

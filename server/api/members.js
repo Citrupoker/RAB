@@ -1,5 +1,5 @@
 
-var membersCtrl = require('../controllers');
+var membersCtrl = require('../controllers/members');
 
 module.exports = function (app) {
 
