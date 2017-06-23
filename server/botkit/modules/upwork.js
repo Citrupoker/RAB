@@ -31,9 +31,14 @@ module.exports = (handles, controller, bot) => {
     */
 
     controller.hears(handles, 'direct_message, direct_mention, mention', function(bot, message) {
+        console.log(message.match[1], message.match[2])
+        if(message.match[1] == 'jobs'){
+            var search_term = encodeURIComponent(message.match[2]);
+        }
+
         /*
         var jobs = new JobSearch(api);
-        jobs.find({'title': 'Web Developer'}, function(error, data) {
+        jobs.find({'title': search_term}, function(error, data) {
             if(error) console.log(error);
             
             data.forEach((job) => {
