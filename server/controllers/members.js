@@ -1,5 +1,5 @@
 var Members = require('../models/members')
-var ObjectId = require('mongodb').ObjectId; 
+var ObjectId = require('mongodb').ObjectId;
 
 module.exports.addMember = (req, res) => {
     var name = req.body.name;
@@ -43,7 +43,7 @@ module.exports.getMembers = (req, res) => {
 }
 
 module.exports.updateMember = (req, res) => {
-    var id = req.params.id;       
+    var id = req.params.id;
     var o_id = new ObjectId(id);
     Members.findOne({ _id: o_id }, (err, member) => {
         if (err) {
@@ -82,9 +82,9 @@ module.exports.deleteMember = (req, res) => {
 
 module.exports.deleteAllMembers = (req, res) => {
     Members.remove({}, (err, result) => {
-       if (err) throw err;
-       res.send({
-           message: "Collection successfully removed"
-       }); 
+        if (err) throw err;
+        res.send({
+            message: "Collection successfully removed"
+        });
     });
 }
