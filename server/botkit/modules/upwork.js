@@ -1,4 +1,5 @@
 module.exports = (handles, controller, bot) => {
+    /*
     var Upwork = require('upwork-api'),
         rl = require('readline'),
         JobSearch = require('upwork-api/lib/routers/jobs/search.js').Search;
@@ -27,8 +28,10 @@ module.exports = (handles, controller, bot) => {
             });
         });
     });
+    */
 
     controller.hears(handles, 'direct_message, direct_mention, mention', function(bot, message) {
+        /*
         var jobs = new JobSearch(api);
         jobs.find({'title': 'Web Developer'}, function(error, data) {
             if(error) console.log(error);
@@ -37,5 +40,6 @@ module.exports = (handles, controller, bot) => {
                 bot.reply(message, job.url);
             });
         });
+        */
     });
 }
