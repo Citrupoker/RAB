@@ -1,5 +1,5 @@
 var fs = require("fs");
-var contents = fs.readFileSync("../api/upwork.json");
+var contents = fs.readFileSync("./upwork.json");
 var jobs = JSON.parse(contents);
 
 module.exports.getJobs = (req, res) => {
