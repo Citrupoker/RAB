@@ -34,10 +34,9 @@ addHandler(['update'], "update")
 addHandler(['codepen (.*)'], "codepen")
 addHandler(['upwork (.*) (.*)'], 'upwork')
 addHandler(['uptime', 'identify yourself', 'who are you', 'what is your name'], "uptime")
-addHandler(['hello', 'hi'], "greetings")
 addHandler(['dm (.*) (.*) (.*)'], "twitterdm")
 addHandler(["profile"], "profile")
-
+addHandler(['hello', 'hi'], "greetings")
 function addHandler(handles, name){
      require("./modules/" + name + ".js")(handles, controller, bot)
 }
