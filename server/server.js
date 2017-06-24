@@ -20,7 +20,7 @@ app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'public'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 
 require('./api/members')(app);
