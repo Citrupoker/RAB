@@ -6,7 +6,7 @@ module.exports = (handles, controller, bot) => {
             if(message.match[1] == 'dm'){
                 var twitter_handle = encodeURIComponent(message.match[2]);
                 var reply = encodeURIComponent(message.match[3]);
-                bot.reply(message, 'Twitter dm test success', twitter_handle, reply);
+                bot.reply(message, 'Twitter dm test success' + twitter_handle + ' ' +  reply);
             }
         });
 }
