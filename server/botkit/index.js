@@ -35,7 +35,7 @@ addHandler(['codepen (.*)'], "codepen")
 addHandler(['upwork (.*) (.*)'], 'upwork')
 addHandler(['uptime', 'identify yourself', 'who are you', 'what is your name'], "uptime")
 addHandler(['hello', 'hi'], "greetings")
-addHandler(['dm (.*) (.*) (.*)'], "twitterdm")
+addHandler(['dm'], "twitterdm")
 addHandler(["profile"], "profile")
 
 function addHandler(handles, name){
