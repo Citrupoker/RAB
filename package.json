@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/Remote-Apprentice/RAB#readme",
   "dependencies": {
-    "backpage-scraper": "0.0.2",
     "botkit": "^0.5.4",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.6",

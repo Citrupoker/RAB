@@ -1,9 +1,9 @@
-var Members = require('../models/members')
+var Members = require('../models/members');
 var ObjectId = require('mongodb').ObjectId;
 
 module.exports.addMember = (req, res) => {
     var name = req.body.name;
-    var coach = req.body.coach === 'true'
+    var coach = req.body.coach === 'true';
     var email = req.body.email;
     var desc = req.body.desc;
     var skills = req.body.skills.split(',');
@@ -26,29 +26,31 @@ module.exports.addMember = (req, res) => {
     newMember.offers = offers;
 
     newMember.save(function (err, member) {
-        if (err) throw err
-        res.json(member)
-    })
-}
+        if (err) throw err;
+        res.json(member);
+      });
+  };
 
 module.exports.getMembers = (req, res) => {
-    console.log(req.body)
+    console.log(req.body);
     Members.find((err, members) => {
         if (err) {
-            return res.status(500).send(err)
+          return res.status(500).send(err);
         }
+
         res.json(members);
 
-    });
-}
+      });
+  };
 
 module.exports.updateMember = (req, res) => {
     var id = req.params.id;
     var o_id = new ObjectId(id);
     Members.findOne({ _id: o_id }, (err, member) => {
         if (err) {
-            return res.status(500).send(err);
+          return res.status(500).send(err);
         }
+
         console.log(req.params.id);
         member.name = req.body.name || member.name;
         member.coach = req.body.coach || member.coach;
@@ -63,28 +65,29 @@ module.exports.updateMember = (req, res) => {
 
         member.save((err, member) => {
             if (err) {
-                return res.status(500).send(err)
+              return res.status(500).send(err);
             }
-            res.json(member);
-        });
 
-    });
-}
+            res.json(member);
+          });
+
+      });
+  };
 
 module.exports.deleteMember = (req, res) => {
     Members.findByIdAndRemove(req.params.id, (err, member) => {
         res.send({
-            message: "Member successfully deleted",
-            id: member._id
-        });
-    });
-}
+            message: 'Member successfully deleted',
+            id: member._id,
+          });
+      });
+  };
 
 module.exports.deleteAllMembers = (req, res) => {
     Members.remove({}, (err, result) => {
         if (err) throw err;
         res.send({
-            message: "Collection successfully removed"
-        });
-    });
-}
+            message: 'Collection successfully removed',
+          });
+      });
+  };
