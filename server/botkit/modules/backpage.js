@@ -16,10 +16,8 @@ module.exports = (handles, controller, bot) => {
             scraper.getLinks(`http://${city}.backpage.com/${category}`, (links) =>{
                 'use strict';
                 console.log(links);
-                links.forEach((link) =>{
-                    setTimeout(function(){
-                        bot.reply(message, link);
-                    }, 1000)
+                bot.reply(message, links[0]);
+                
 
                 })
 
