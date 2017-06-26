@@ -11,10 +11,11 @@ module.exports = (handles, controller, bot) => {
 
         console.log(message.match[1], message.match[2])
         if(message.match[1] == 'backpage'){
-            var city = encodeURIComponent(message.match[2]);
-            scraper.getLinks(`http://${city}.backpage.com/ComputerJobs/`, (links) =>{
+            var city = encodeURIComponent(message.match[1]);
+            var category = encodeURIComponent(message.match[2]);
+            scraper.getLinks(`http://${city}.backpage.com/${category}`, (links) =>{
                 'use strict';
-                bot.repy(message, links)
+                bot.reply(message, links)
             })
         }
     });
