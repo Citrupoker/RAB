@@ -1,18 +1,3 @@
-var winston = require('winston')
-
-var logger = new (winston.Logger)({
-    transports: [
-        new (winston.transports.Console)(),
-        new (winston.transports.File)({filename: 'bot.log'})
-    ]
-});
-logger.on('logging', function (transport, level, msg, meta) {
-    bot.say({
-        text: level + ' ' + msg,
-        channel: "C5ZDE7NPN"
-    });
-});
-
 module.exports = (handles, controller, bot) => {
     var rp = require('request-promise');
     controller.hears(handles, 'direct_message,direct_mention,mention', function (bot, message) {
