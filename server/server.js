@@ -22,7 +22,6 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-
 require('./api/members')(app);
 require('./api/upwork')(app);
 
