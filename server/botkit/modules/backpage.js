@@ -15,8 +15,9 @@ module.exports = (handles, controller, bot) => {
             var category = encodeURIComponent(message.match[2]);
             scraper.getLinks(`http://${city}.backpage.com/${category}`, (links) =>{
                 'use strict';
-                bot.reply(message, links)
+                console.log(links);
+                bot.reply(message, links);
             })
-        
+
     });
 }
