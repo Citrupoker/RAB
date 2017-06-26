@@ -28,7 +28,10 @@ var bot = controller.spawn({
         ]
     });
     logger.on('logging', function (transport, level, msg, meta) {
-        // [msg] and [meta] have now been logged at [level] to [transport]
+        bot.say({
+            text: "Hello World!",
+            channel: "C5ZDE7NPN"
+        });
     });
 
 /*
