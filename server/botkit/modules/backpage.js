@@ -16,7 +16,10 @@ module.exports = (handles, controller, bot) => {
             scraper.getLinks(`http://${city}.backpage.com/${category}`, (links) =>{
                 'use strict';
                 console.log(links);
-                bot.reply(message, links);
+                links.forEach((link) =>{
+                    bot.reply(message, link);
+                })
+
             })
 
     });
