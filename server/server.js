@@ -4,11 +4,10 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser     = require('body-parser');
-require('dotenv').config()
+require('dotenv').config();
 var port = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGODB);
-
 
 require('./twitter')();
 require('./botkit')();
@@ -22,11 +21,10 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); //for parsing url encoded
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-
 require('./api/members')(app);
 require('./api/upwork')(app);
 
-app.listen(app.get('port'), function() {
-    console.log("Node app is running at localhost:" + app.get('port'))
-})
+app.listen(app.get('port'), function () {
+    console.log('Node app is running at localhost:' + app.get('port'));
+  });
 
