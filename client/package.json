@@ -8,6 +8,8 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "react-bootstrap": "^0.31.0",
     "react-scripts": "1.0.7"
   },
   "scripts": {
