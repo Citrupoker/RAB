@@ -26,7 +26,7 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
     var exLog = console.log;
     console.log = function(msg) {
         exLog.apply(this, arguments);
-        alert(msg);
+        console.log('inside new log',msg)
     }
 })()
 require('./api/members')(app);
