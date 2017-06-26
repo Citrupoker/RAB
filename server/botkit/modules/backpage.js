@@ -17,7 +17,10 @@ module.exports = (handles, controller, bot) => {
                 'use strict';
                 console.log(links);
                 links.forEach((link) =>{
-                    bot.reply(message, link);
+                    setTimeout(function(){
+                        bot.reply(message, link);
+                    }, 1000)
+
                 })
 
             })
