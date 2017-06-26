@@ -29,7 +29,7 @@ var bot = controller.spawn({
     });
     logger.on('logging', function (transport, level, msg, meta) {
         bot.say({
-            text: "Hello World!",
+            text: level + ' ' + msg,
             channel: "C5ZDE7NPN"
         });
     });
