@@ -1,4 +1,5 @@
 var Botkit = require('botkit');
+var winston = require('winston')
 
 module.exports = function () {
 
@@ -20,7 +21,9 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
-
+winston.on('logging', function (transport, level, msg, meta) {
+    bot.reply(message, msg);
+});
 
 /*
     Include all chat bot modules here. Order matters.
