@@ -5,5 +5,5 @@ var jobs = JSON.parse(contents)
 */
 module.exports.getJobs = (req, res) => {
     console.log('Here is a list of jobs');
-  }
+  };
 
