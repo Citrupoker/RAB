@@ -21,9 +21,15 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
-winston.on('logging', function (transport, level, msg, meta) {
-    bot.reply(message, msg);
-});
+    var logger = new (winston.Logger)({
+        transports: [
+            new (winston.transports.Console)(),
+            new (winston.transports.File)({filename: 'bot.log'})
+        ]
+    });
+    logger.on('logging', function (transport, level, msg, meta) {
+        // [msg] and [meta] have now been logged at [level] to [transport]
+    });
 
 /*
     Include all chat bot modules here. Order matters.
