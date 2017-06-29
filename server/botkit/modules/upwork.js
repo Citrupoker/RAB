@@ -5,6 +5,13 @@ module.exports = (handles, controller, bot) => {
         , Auth = require('upwork-api/lib/routers/auth').Auth // use if package is installed via npm
         , rl = require('readline');
 
+    var config = {
+        consumerKey: process.env.UPWORK_KEY,
+        consumerSecret: process.env.UPWORK_SECRET,
+        //  'accessToken' : 'xxxxxxxx', // assign if known
+        //  'accessSecret' : 'xxxxxxxx', // assign if known
+        debug: false,
+      };
     // you can use your own client for OAuth routine, just identify it here
     // and use as a second parameter for UpworkApi constructor (see the example of usage below)
     // note: your client must support the following methods:
