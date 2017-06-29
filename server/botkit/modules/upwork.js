@@ -12,7 +12,7 @@ module.exports = (handles, controller, bot) => {
         access = {};
 
     api.getAuthorizationUrl(callbackUrl, function (error, url, requestToken, requestTokenSecret) {
-        if (error) throw new Error('Can not get authorization url, error: ' + error.error);
+        if (error) throw new Error('Can not get authorization url, error: ' + error);
 
         var interface = rl.createInterface(process.stdin, process.stdout);
         interface.question('Please, visit ' + url + ' and enter a verifier: ', function (verifier) {
