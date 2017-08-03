@@ -26,7 +26,6 @@ module.exports = function () {
       Include all chat bot modules here. Order matters.
       Note the "wHIte stripes" bug
   */
-  bot.say('test');
   addHandler(['help'], 'help');
   addHandler(['call me (.*)', 'my name is (.*)'], 'callme');
   addHandler(['wiki (.*)'], 'wikipedia');
