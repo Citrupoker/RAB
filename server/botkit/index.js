@@ -37,6 +37,7 @@ module.exports = function () {
   addHandler(['hello', 'hi'], 'greetings');
   addHandler(['dm'], 'twitterdm');
   addHandler(['profile'], 'profile');
+  addHandler(['(.*)'], 'introduction');
 
   function addHandler(handles, name) {
     require('./modules/' + name + '.js')(handles, controller, bot);
