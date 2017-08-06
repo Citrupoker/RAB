@@ -37,7 +37,7 @@ module.exports = function () {
   addHandler(['hello', 'hi'], 'greetings');
   addHandler(['dm'], 'twitterdm');
   addHandler(['profile'], 'profile');
-  addHandler('channel_joined', 'welcome');
+  addHandler('user_channel_join', 'welcome');
   addHandler(['(.*)'], 'introduction');
 
   function addHandler(handles, name) {
