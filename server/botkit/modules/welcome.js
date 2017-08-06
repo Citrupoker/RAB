@@ -6,10 +6,12 @@ module.exports = (handles, controller, bot) => {
             bot.startPrivateConversation(message, function (err, convo) {
                 var name = message.user_profile.first_name;
                 if (!err) {
-                    convo.say(`Welcome ${name}. Thank you for joining our community. Please make sure to review our ` +
-                    `<https://github.com/Remote-Apprentice/RAB/blob/master/CODE_OF_CONDUCT.md|code of conduct> and ` +
-                    `introduce yourself briefly in the <@C5QGPRB52|introductions channel>. To learn more about ` +
-                    `Remote Apprentice, check out the #faq channel.`);
+                    convo.say({
+                        text: `Welcome ${name}. Thank you for joining our community. Please make sure to review our ` +
+                        `<https://github.com/Remote-Apprentice/RAB/blob/master/CODE_OF_CONDUCT.md|code of conduct> and ` +
+                        `introduce yourself briefly in the <@C5QGPRB52|introductions channel>. To learn more about ` +
+                        `Remote Apprentice, check out the #faq channel.`
+                    });
                     convo.next();
                 }
             });
