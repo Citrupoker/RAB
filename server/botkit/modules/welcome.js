@@ -2,7 +2,6 @@ var Member = require('../../models/members');
 
 module.exports = (handles, controller, bot) => {
     controller.on(handles, function (bot, message) {
-        console.log(message);
         if (message.channel === 'C5QGPRB52') {
             bot.startPrivateConversation(message, function (err, convo) {
                 var name = message.user_profile.first_name;
