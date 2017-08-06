@@ -13,8 +13,8 @@ module.exports = (handles, controller, bot) => {
                     });*/
                     bot.startPrivateConversation(message, function (err, convo) {
                         if (!err) {
-                            bot.say('Welcome to our Slack team. Use the #FAQ channel to learn more about Remote Apprentice.');
-                            bot.next();
+                            convo.say('Welcome to our Slack team. Use the #FAQ channel to learn more about Remote Apprentice.');
+                            convo.next();
                         }
                     });
                 //}
