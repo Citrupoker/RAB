@@ -7,9 +7,7 @@ module.exports = (handles, controller, bot) => {
             bot.startPrivateConversation(message, function (err, convo) {
                 var name = message.user_profile.first_name;
                 if (!err) {
-                    convo.say(`Welcome ${name}. Thank you for joining our community. Please introduce yourself 
-                    briefly in the #introductions channel. To learn more about Remote Apprentice, 
-                    check out the #faq channel.`);
+                    convo.say(`Welcome ${name}. Thank you for joining our community. Please introduce yourself briefly in the #introductions channel. To learn more about Remote Apprentice, check out the #faq channel.`);
                     convo.next();
                 }
             });
