@@ -11,7 +11,12 @@ module.exports = (handles, controller, bot) => {
                         if (err) throw err;
                         console.log(member.name + ' is no longer a new member.');
                     });
-                    bot.reply(message, 'Welcome to our Slack team. Use the #FAQ channel to learn more about Remote Apprentice.');
+                    bot.startPrivateConversation(message, function (err, convo) {
+                        if (!err) {
+                            bot.say('Welcome to our Slack team. Use the #FAQ channel to learn more about Remote Apprentice.');
+                            bot.next();
+                        }
+                    });
                 //}
             });
         }
