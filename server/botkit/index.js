@@ -38,7 +38,6 @@ module.exports = function () {
   addHandler(['dm'], 'twitterdm');
   addHandler(['profile'], 'profile');
   addHandler('user_channel_join', 'welcome');
-  addHandler(['(.*)'], 'introduction');
 
   function addHandler(handles, name) {
     require('./modules/' + name + '.js')(handles, controller, bot);

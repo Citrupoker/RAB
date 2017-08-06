@@ -24,7 +24,6 @@ module.exports = () => {
                           newMember.name = profile.real_name;
                           newMember.email = profile.email;
                           newMember.img = profile.image_192;
-                          newMember.new = true;
                           console.log(newMember);
 
                           newMember.save(function (err, member) {

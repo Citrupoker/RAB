@@ -9,7 +9,6 @@ var memberSchema =  mongoose.Schema({
     skills: [],
     roles: [],
     img: {type: String},
-    new: {type: Boolean},
     website: {type: String},
     views: {type: Number},
     offers: []
