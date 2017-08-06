@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
 
 var memberSchema =  mongoose.Schema({
+    id: {type: String},
     coach : {type: Boolean, default: false},
     name : {type: String},
     email: {type: String},
@@ -8,6 +9,7 @@ var memberSchema =  mongoose.Schema({
     skills: [],
     roles: [],
     img: {type: String},
+    new: {type: Boolean},
     website: {type: String},
     views: {type: Number},
     offers: []
