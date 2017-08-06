@@ -12,6 +12,7 @@ module.exports = () => {
         .then(function (data) {
             data.members.forEach(function (member) {
                 if (member.profile !== undefined) {
+                  console.log(member);
                   var profile = member.profile;
                   if (profile.email && profile.email.length > 0) {
                     Members.findOne({ email: profile.email }, function (err, member) {
